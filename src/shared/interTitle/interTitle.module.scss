@@ -1,0 +1,99 @@
+.interTitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  filter: blur(1px);
+  background-color: rgb(156, 156, 156);
+
+  img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.8;
+  }
+
+  .interTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80%;
+    height: 80%;
+    margin: 4.5em;
+
+    .interTitle__characterNameText,
+    .interTitle__characterDialogueText {
+      color: rgb(247, 242, 236);
+      font-family: "Eczar", serif;
+      font-size: 50px;
+      width: 60%;
+      pointer-events: none;
+      cursor: none;
+
+      @media screen and (min-width: 320px) {
+        html {
+          font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+        }
+      }
+      @media screen and (min-width: 1000px) {
+        html {
+          font-size: 22px;
+        }
+      }
+    }
+
+    .interTitle__choiceText {
+      color: rgb(247, 242, 236);
+      font-family: "Eczar", serif;
+      text-decoration: none;
+      font-size: 40px;
+      border: 1px solid rgb(247, 242, 236);
+      margin: 0.25em 0;
+      width: 30%;
+
+      &:hover {
+        pointer-events: all;
+        background-color: silver;
+        color: black;
+      }
+
+      @media screen and (min-width: 320px) {
+        html {
+          font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+        }
+      }
+      @media screen and (min-width: 1000px) {
+        html {
+          font-size: 22px;
+        }
+      }
+    }
+
+    .interTitle__characterNameText {
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+
+    .interTitle__arrowLink {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 40px;
+      text-decoration: none;
+      pointer-events: all;
+      position: absolute;
+      z-index: 1;
+      bottom: 150px;
+      cursor: default;
+    }
+
+    .interTitle__arrowLinkBack {
+      transform: rotate(180deg);
+    }
+  }
+}

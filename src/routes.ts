@@ -1,11 +1,11 @@
 const routes = {
   HOME: "/",
   ABOUT: "/about",
-  CHERRY_HEART_CAKE: "/cherry-heart-cake",
-  CHERRY_HEART_CAKE_CRUMB_COAT: "/cherry-heart-cake/crumb-coat",
-  CHERRY_HEART_CAKE_CAKE_SCENE: "/cherry-heart-cake/cake-scene",
-  CRUMB_COAT: "crumb-coat",
-  CAKE_SCENE: "cake-scene",
+  INTRO: "/intro",
+  BAKERY_AUDITION: "/bakery-audition",
+  FIRST_BIG_ORDER: "/first-big-order",
+  CHERRY_ALMOND_CAKE: "/cherry-almond-cake",
+  FALLING_IN_LOVE: "/falling-in-love",
 };
 
 export default routes;

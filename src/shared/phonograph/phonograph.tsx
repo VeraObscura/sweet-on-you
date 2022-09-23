@@ -7,7 +7,7 @@ import ReactAudioPlayer from "react-audio-player";
 import routes from "routes";
 import audioFile1 from "assets/audio/Victor_Herbert_Orchestra_-_10_-_1910_-_Hungarian_Dance.mp3";
 import audioFile2 from "assets/audio/Victor_Herbert_Orchestra_-_07_-_1909_-_Venetian_Love_Song.mp3";
-// import audioFile3 from "assets/audio/Victor_Herbert_Orchestra_-_12_-_1910_-_Old_Dutch.mp3";
+import audioFile3 from "assets/audio/Victor_Herbert_Orchestra_-_12_-_1910_-_Old_Dutch.mp3";
 // import audioFile4 from "assets/audio/Victor_Herbert_Orchestra_-_20_-_1911_-_Naughty_Marietta.mp3";
 // import audioFile5 from "assets/audio/Victor_Herbert_Orchestra_-_21_-_1912_-_The_Ameer.mp3";
 // import audioFile6 from "assets/audio/Victor_Herbert_Orchestra_-_22_-_1913_-_Chanson_Triste.mp3";
@@ -20,9 +20,8 @@ const Phonograph = () => {
     const audioFilesMap = [
       { route: routes.HOME, audio: audioFile1 },
       { route: routes.ABOUT, audio: audioFile1 },
-      { route: routes.CHERRY_HEART_CAKE, audio: audioFile2 },
-      { route: routes.CHERRY_HEART_CAKE_CRUMB_COAT, audio: audioFile2 },
-      { route: routes.CHERRY_HEART_CAKE_CAKE_SCENE, audio: audioFile2 },
+      { route: routes.FIRST_BIG_ORDER, audio: audioFile2 },
+      { route: routes.CHERRY_ALMOND_CAKE, audio: audioFile3 },
     ];
 
     const file = audioFilesMap.find(

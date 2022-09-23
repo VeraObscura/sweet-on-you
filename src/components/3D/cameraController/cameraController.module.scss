@@ -1,0 +1,34 @@
+.cakeScene {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(30, 11, 11);
+
+  .uiContainer {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    filter: blur(1px);
+    pointer-events: none;
+    cursor: none;
+
+    .uiContainer__button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 40px;
+      text-decoration: none;
+      pointer-events: all;
+      position: absolute;
+      z-index: 1;
+      bottom: 50px;
+      right: 50px;
+      cursor: default;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import ActionPanel from "shared/actionPanel";
@@ -6,15 +7,18 @@ import StartMenu from "shared/menus/startMenu";
 import PauseMenu from "shared/menus/pauseMenu";
 import About from "shared/menus/about";
 import Intro from "scenes/0_intro";
-import CherryAlmondCake from "scenes/3_cherryAlmondCake/cherryAlmondCake";
+import CustomerIsAlwaysRight from "scenes/3_customerIsAlwaysRight";
 import routes from "./routes";
 
-import "./app.scss";
-import { useState } from "react";
 import OptionsMenu from "shared/menus/optionsMenu";
 import BakeryAudition from "scenes/1_bakeryAudition";
 import FirstBigOrder from "scenes/2_firstBigOrder";
-import FallingInLove from "scenes/4_fallingInLove";
+import DreamALittleDream from "scenes/4_dreamALittleDream";
+import CastleInTheAir from "scenes/5_castleIntheAir";
+
+import "./app.scss";
+import ShowMustGoOn from "scenes/6_showMustGoOn";
+import DevilInTheDetails from "scenes/7_devilInTheDetails";
 
 function App() {
   const [displayPauseMenu, setDisplayPauseMenu] = useState(false);
@@ -64,10 +68,19 @@ function App() {
         <Route path={routes.BAKERY_AUDITION} element={<BakeryAudition />} />
         <Route path={routes.FIRST_BIG_ORDER} element={<FirstBigOrder />} />
         <Route
-          path={routes.CHERRY_ALMOND_CAKE}
-          element={<CherryAlmondCake />}
+          path={routes.CUSTOMER_IS_ALWAYS_RIGHT}
+          element={<CustomerIsAlwaysRight />}
         />
-        <Route path={routes.FALLING_IN_LOVE} element={<FallingInLove />} />
+        <Route
+          path={routes.DREAM_A_LITTLE_DREAM}
+          element={<DreamALittleDream />}
+        />
+        <Route path={routes.CASTLE_IN_THE_AIR} element={<CastleInTheAir />} />
+        <Route path={routes.THE_SHOW_MUST_GO_ON} element={<ShowMustGoOn />} />
+        <Route
+          path={routes.DEVIL_IN_THE_DETAILS}
+          element={<DevilInTheDetails />}
+        />
       </Routes>
     </div>
   );

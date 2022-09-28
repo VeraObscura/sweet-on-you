@@ -15,7 +15,7 @@ export const optionsSlice = createSlice({
   name: "inventory",
   initialState,
   reducers: {
-    setVolume: (state, action: PayloadAction<number>) => {
+    setVolume: (state: any, action: PayloadAction<number>) => {
       state.volume = action.payload;
     },
   },

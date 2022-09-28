@@ -1,11 +1,14 @@
 const routes = {
   HOME: "/",
   ABOUT: "/about",
-  CHERRY_HEART_CAKE: "/cherry-heart-cake",
-  CHERRY_HEART_CAKE_CRUMB_COAT: "/cherry-heart-cake/crumb-coat",
-  CHERRY_HEART_CAKE_CAKE_SCENE: "/cherry-heart-cake/cake-scene",
-  CRUMB_COAT: "crumb-coat",
-  CAKE_SCENE: "cake-scene",
+  INTRO: "/intro",
+  BAKERY_AUDITION: "/bakery-audition",
+  FIRST_BIG_ORDER: "/first-big-order",
+  CUSTOMER_IS_ALWAYS_RIGHT: "/cherry-almond-cake",
+  DREAM_A_LITTLE_DREAM: "/falling-in-love",
+  CASTLE_IN_THE_AIR: "/castle-in-the-air",
+  THE_SHOW_MUST_GO_ON: "/the-show-must-go-on",
+  DEVIL_IN_THE_DETAILS: "/the-final-flourish",
 };
 
 export default routes;

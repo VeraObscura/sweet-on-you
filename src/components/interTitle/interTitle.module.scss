@@ -21,13 +21,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: 80%;
     height: 80%;
     margin: 4.5em;
 
     &__justifyCentered {
-      justify-content: center;
+      //justify-content: center;
     }
 
     &__titleText,
@@ -51,9 +51,19 @@
       }
     }
 
+    &__italicizedText {
+      font-style: italic;
+    }
+
+    &__capitalizedText {
+      text-transform: uppercase;
+    }
+
     &__titleText {
       text-transform: uppercase;
       text-decoration: underline;
+      position: absolute;
+      top: 10%;
     }
 
     &__choiceText {
@@ -63,7 +73,7 @@
       font-size: 40px;
       border: 1px solid rgb(247, 242, 236);
       margin: 0.25em 0;
-      width: 30%;
+      width: 40%;
       cursor: pointer;
 
       &:hover {
@@ -94,7 +104,7 @@
       position: absolute;
       z-index: 1;
       bottom: 150px;
-      cursor: default;
+      cursor: pointer;
     }
 
     &__arrowLinkBack {

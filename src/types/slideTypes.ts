@@ -4,7 +4,9 @@ export interface TextType {
 }
 
 export interface SlideType {
+  chapter?: TextType;
   title?: TextType;
+  context?: TextType;
   narration?: TextType;
   dialogue?: TextType;
   choices?: TextType[];

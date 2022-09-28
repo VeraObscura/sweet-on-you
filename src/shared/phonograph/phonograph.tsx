@@ -21,7 +21,7 @@ const Phonograph = () => {
       { route: routes.HOME, audio: audioFile1 },
       { route: routes.ABOUT, audio: audioFile1 },
       { route: routes.FIRST_BIG_ORDER, audio: audioFile2 },
-      { route: routes.CHERRY_ALMOND_CAKE, audio: audioFile3 },
+      { route: routes.CUSTOMER_IS_ALWAYS_RIGHT, audio: audioFile3 },
     ];
 
     const file = audioFilesMap.find(

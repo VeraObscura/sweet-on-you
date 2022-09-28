@@ -1,6 +1,5 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 
-import { SlideType, TextType } from "types/slideTypes";
 import { SceneType } from "types/sceneTypes";
 import { useAppSelector } from "redux/hooks";
 import { slidesA, slidesB, pathA, pathB } from "./text";
@@ -8,14 +7,8 @@ import BakeryStoreFront from "./components/bakeryStoreFront/bakeryStoreFront";
 
 import routes from "routes";
 
-import {
-  InterTitle,
-  TitleText,
-  CharacterDialogueText,
-  NarrationText,
-  ChoiceText,
-  ArrowLink,
-} from "components/interTitle";
+import { InterTitle, ArrowLink } from "components/interTitle";
+import getSlideContent from "helpers/getSlideContent";
 
 const FirstBigOrder = ({ slideIdx = null }: SceneType) => {
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
@@ -46,19 +39,6 @@ const FirstBigOrder = ({ slideIdx = null }: SceneType) => {
     }
   }, [choiceIndex, handleNextSlide]);
 
-  const choiceContent = (choices: TextType[]) => {
-    return choices.map((choice, index) => (
-      <ChoiceText
-        key={index}
-        text={choice[language]}
-        link={null}
-        onClick={() => {
-          handleSelection(index);
-        }}
-      />
-    ));
-  };
-
   const handleSelection = (index: number) => {
     let newSlides;
     switch (index) {
@@ -76,23 +56,7 @@ const FirstBigOrder = ({ slideIdx = null }: SceneType) => {
     setChoiceIndex(index);
   };
 
-  const slideContent = slides.map((slide: SlideType) => {
-    return (
-      <Fragment>
-        {slide.title && <TitleText text={slide.title[language]} />}
-        {slide.narration && <NarrationText text={slide.narration[language]} />}
-        {slide.dialogue && (
-          <CharacterDialogueText text={slide.dialogue[language]} />
-        )}
-        {slide.choices && choiceContent(slide.choices)}
-      </Fragment>
-    );
-  });
-
-  console.log(slides);
-  console.log(checkSlidesOver());
-  console.log("currSlideIndex", slideIndex);
-  console.log("slideIndexMax", slides.length - 1);
+  const slideContent = getSlideContent({ slides, language, handleSelection });
 
   const renderSlide = (stepName: string | undefined) => {
     switch (stepName) {
@@ -108,7 +72,9 @@ const FirstBigOrder = ({ slideIdx = null }: SceneType) => {
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && (
               <ArrowLink
-                link={checkSlidesOver() ? routes.CHERRY_ALMOND_CAKE : null}
+                link={
+                  checkSlidesOver() ? routes.CUSTOMER_IS_ALWAYS_RIGHT : null
+                }
                 onClick={handleNextSlide}
               />
             )}

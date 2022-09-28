@@ -24,6 +24,8 @@ interface TitleTextProps {
 interface BodyTextProps {
   text: string | undefined;
   padded?: boolean;
+  italic?: boolean;
+  capitalize?: boolean;
 }
 
 interface InterTitleProps {
@@ -59,8 +61,18 @@ export const CharacterDialogueText = ({ text }: BodyTextProps) => {
   return <h1 className={styles.interTitle__bodyText}>{`"${text}"`}</h1>;
 };
 
-export const NarrationText = ({ text }: BodyTextProps) => {
-  return <h1 className={styles.interTitle__bodyText}>{`${text}`}</h1>;
+export const NarrationText = ({
+  text,
+  italic = false,
+  capitalize = false,
+}: BodyTextProps) => {
+  return (
+    <h1
+      className={`${styles.interTitle__bodyText} ${
+        italic && styles.interTitle__italicizedText
+      } ${capitalize && styles.interTitle__capitalizedText}`}
+    >{`${text}`}</h1>
+  );
 };
 
 export const ArrowLink = ({

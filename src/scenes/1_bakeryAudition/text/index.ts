@@ -2,8 +2,8 @@ import { SlideType } from "types/slideTypes";
 
 export const slideText: SlideType[] = [
   {
-    narration: {
-      en: "THE BIG AUDITION",
+    chapter: {
+      en: "The big audition",
     },
   },
   {
@@ -21,7 +21,7 @@ export const slideText: SlideType[] = [
   },
   {
     narration: {
-      en: "Her heart beats nervously as she steps inside...",
+      en: "She can feel her heart pounding as she steps inside...",
     },
   },
   {

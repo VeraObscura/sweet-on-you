@@ -1,6 +1,5 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 
-import { SlideType, TextType } from "types/slideTypes";
 import { SceneType } from "types/sceneTypes";
 import { useAppSelector } from "redux/hooks";
 import { slideText, pathA, pathB, pathC } from "./text";
@@ -9,14 +8,8 @@ import routes from "routes";
 import CrumbCoatScene from "./components/crumbCoatScene";
 import CakeScene from "./components/cakeScene";
 
-import {
-  InterTitle,
-  TitleText,
-  CharacterDialogueText,
-  NarrationText,
-  ChoiceText,
-  ArrowLink,
-} from "components/interTitle";
+import { InterTitle, ArrowLink } from "components/interTitle";
+import getSlideContent from "helpers/getSlideContent";
 
 const Intro = ({ slideIdx = null }: SceneType) => {
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
@@ -47,20 +40,7 @@ const Intro = ({ slideIdx = null }: SceneType) => {
     }
   }, [choiceIndex, handleNextSlide]);
 
-  const choiceContent = (choices: TextType[]) => {
-    return choices.map((choice, index) => (
-      <ChoiceText
-        key={index}
-        text={choice[language]}
-        link={null}
-        onClick={() => {
-          handleCakeSelection(index);
-        }}
-      />
-    ));
-  };
-
-  const handleCakeSelection = (index: number) => {
+  const handleSelection = (index: number) => {
     let newSlides;
     switch (index) {
       case 0:
@@ -79,18 +59,7 @@ const Intro = ({ slideIdx = null }: SceneType) => {
     setChoiceIndex(index);
   };
 
-  const slideContent = slides.map((slide: SlideType) => {
-    return (
-      <Fragment>
-        {slide.title && <TitleText text={slide.title[language]} />}
-        {slide.narration && <NarrationText text={slide.narration[language]} />}
-        {slide.dialogue && (
-          <CharacterDialogueText text={slide.dialogue[language]} />
-        )}
-        {slide.choices && choiceContent(slide.choices)}
-      </Fragment>
-    );
-  });
+  const slideContent = getSlideContent({ slides, language, handleSelection });
 
   const renderSlide = (stepName: string | undefined) => {
     switch (stepName) {

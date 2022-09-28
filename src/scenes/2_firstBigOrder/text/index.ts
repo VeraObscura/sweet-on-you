@@ -2,8 +2,8 @@ import { SlideType } from "types/slideTypes";
 
 export const slidesA: SlideType[] = [
   {
-    narration: {
-      en: "THE FIRST BIG ORDER",
+    chapter: {
+      en: "The first big order",
     },
   },
   {
@@ -122,9 +122,9 @@ export const slidesB: SlideType[] = [
       en: "She thinks to herself, a smile playing on her lips...",
     },
   },
-  {
-    narration: {
-      en: "..'Well, isn't the customer always right?'",
-    },
-  },
+  // {
+  //   narration: {
+  //     en: "..'Well, isn't the customer always right?'",
+  //   },
+  // },
 ];

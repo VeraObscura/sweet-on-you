@@ -1,6 +1,5 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 
-import { SlideType, TextType } from "types/slideTypes";
 import { SceneType } from "types/sceneTypes";
 import { useAppSelector } from "redux/hooks";
 import { slideText, pathA } from "./text";
@@ -8,14 +7,8 @@ import BakeryStoreFront from "./components/bakeryStoreFront/bakeryStoreFront";
 
 import routes from "routes";
 
-import {
-  InterTitle,
-  TitleText,
-  CharacterDialogueText,
-  NarrationText,
-  ChoiceText,
-  ArrowLink,
-} from "components/interTitle";
+import { InterTitle, ArrowLink } from "components/interTitle";
+import getSlideContent from "helpers/getSlideContent";
 
 const BakeryAudition = ({ slideIdx = null }: SceneType) => {
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
@@ -46,37 +39,13 @@ const BakeryAudition = ({ slideIdx = null }: SceneType) => {
     }
   }, [choiceIndex, handleNextSlide]);
 
-  const choiceContent = (choices: TextType[]) => {
-    return choices.map((choice, index) => (
-      <ChoiceText
-        key={index}
-        text={choice[language]}
-        link={null}
-        onClick={() => {
-          handleSelection(index);
-        }}
-      />
-    ));
-  };
-
   const handleSelection = (index: number) => {
     let newSlides = slides.concat(pathA);
     setSlides(newSlides);
     setChoiceIndex(index);
   };
 
-  const slideContent = slides.map((slide: SlideType) => {
-    return (
-      <Fragment>
-        {slide.title && <TitleText text={slide.title[language]} />}
-        {slide.narration && <NarrationText text={slide.narration[language]} />}
-        {slide.dialogue && (
-          <CharacterDialogueText text={slide.dialogue[language]} />
-        )}
-        {slide.choices && choiceContent(slide.choices)}
-      </Fragment>
-    );
-  });
+  const slideContent = getSlideContent({ slides, language, handleSelection });
 
   const renderSlide = (stepName: string | undefined) => {
     switch (stepName) {

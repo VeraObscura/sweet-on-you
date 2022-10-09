@@ -1,13 +1,20 @@
 import * as THREE from "three";
-import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  Fragment,
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { Canvas, ThreeElements, Vector3 } from "@react-three/fiber";
-import { useSpring, animated } from "@react-spring/three";
+// import { useSpring, animated } from "@react-spring/three";
 import { Model } from "./Scene";
 
-import CameraController from "components/3D/cameraController/cameraController";
-import UIContainer from "shared/uiContainer";
-import Table from "components/3D/table";
-import Plate from "components/3D/plate";
+import CameraController from "@/components/3D/cameraController/cameraController";
+import UIContainer from "@/shared/uiContainer";
+import Table from "@/components/3D/table";
+import Plate from "@/components/3D/plate";
 
 import styles from "./cakeScene.module.scss";
 
@@ -41,26 +48,29 @@ const Cake = () => {
 };
 
 const Sphere = (props: ThreeElements["mesh"]) => {
-  const mesh = useRef<THREE.Mesh>(null!);
-  const [isInvisible, setIsInvisible] = useState(true);
-  const { scale } = useSpring({ scale: isInvisible ? 0.05 : 0.1 });
+  // const mesh = useRef<THREE.Mesh>(null!);
+  // const [isInvisible, setIsInvisible] = useState(true);
+  // const { scale } = useSpring({ scale: isInvisible ? 0.05 : 0.1 });
+  const isInvisible = true;
 
   return (
-    <animated.mesh
-      scale={scale}
-      position={props.position}
-      ref={mesh}
-      onClick={() => {
-        setIsInvisible(!isInvisible);
-      }}
-    >
+    // <animated.mesh
+    //   scale={scale}
+    //   position={props.position}
+    //   ref={mesh}
+    //   onClick={() => {
+    //     setIsInvisible(!isInvisible);
+    //   }}
+    // >
+    <Fragment>
       <sphereGeometry />
       <meshPhongMaterial
         color="white"
         opacity={isInvisible ? 0 : 1}
         transparent={isInvisible}
       />
-    </animated.mesh>
+    </Fragment>
+    // </animated.mesh>
   );
 };
 

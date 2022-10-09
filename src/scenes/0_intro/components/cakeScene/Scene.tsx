@@ -11,26 +11,16 @@ import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { forwardRef } from "react";
 
-type GLTFResult = GLTF & {
+export declare type ObjectMapCustom = {
   nodes: {
-    Object_4: THREE.Mesh;
-    Object_5: THREE.Mesh;
-    Object_7: THREE.Mesh;
-    Object_9: THREE.Mesh;
-    Object_11: THREE.Mesh;
-    Object_12: THREE.Mesh;
-    Object_14: THREE.Mesh;
+    [name: string]: any;
   };
   materials: {
-    ["Material.001"]: THREE.MeshStandardMaterial;
-    ["Material.005"]: THREE.MeshStandardMaterial;
-    ["Material.004"]: THREE.MeshStandardMaterial;
-    material_0: THREE.MeshStandardMaterial;
-    ["Material.006"]: THREE.MeshStandardMaterial;
-    ["Material.007"]: THREE.MeshPhysicalMaterial;
-    ["Material.008"]: THREE.MeshStandardMaterial;
+    [name: string]: THREE.Material;
   };
 };
+
+type GLTFResult = GLTF & ObjectMapCustom;
 
 export const Model = forwardRef(function Cake(props: any, forwardRef: any) {
   const { nodes, materials } = useGLTF("/scene.gltf") as GLTFResult;

@@ -1,4 +1,4 @@
-import FilmGrain from "shared/filmGrain";
+import FilmGrain from "@/shared/filmGrain";
 import styles from "./uiContainer.module.scss";
 import { Link } from "react-router-dom";
 

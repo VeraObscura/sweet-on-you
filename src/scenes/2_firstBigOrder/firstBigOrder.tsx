@@ -1,14 +1,14 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 
-import { SceneType } from "types/sceneTypes";
-import { useAppSelector } from "redux/hooks";
+import { SceneType } from "@/types/sceneTypes";
+import { useAppSelector } from "@/redux/hooks";
 import { slidesA, slidesB, pathA, pathB } from "./text";
 import BakeryStoreFront from "./components/bakeryStoreFront/bakeryStoreFront";
 
-import routes from "routes";
+import routes from "@/routes";
 
-import { InterTitle, ArrowLink } from "components/interTitle";
-import getSlideContent from "helpers/getSlideContent";
+import { InterTitle, ArrowLink } from "@/components/interTitle";
+import getSlideContent from "@/helpers/getSlideContent";
 
 const FirstBigOrder = ({ slideIdx = null }: SceneType) => {
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);

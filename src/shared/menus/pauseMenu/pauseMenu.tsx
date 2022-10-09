@@ -1,4 +1,4 @@
-import { InterTitle, ChoiceText, TitleText } from "components/interTitle";
+import { InterTitle, ChoiceText, TitleText } from "@/components/interTitle";
 import styles from "./pauseMenu.module.scss";
 
 const { ipcRenderer } = require("electron");

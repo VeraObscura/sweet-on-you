@@ -1,15 +1,15 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 
-import { SceneType } from "types/sceneTypes";
-import { useAppSelector } from "redux/hooks";
+import { SceneType } from "@/types/sceneTypes";
+import { useAppSelector } from "@/redux/hooks";
 import { slideText, pathA, pathB, pathC } from "./text";
-import routes from "routes";
+import routes from "@/routes";
 
 import CrumbCoatScene from "./components/crumbCoatScene";
 import CakeScene from "./components/cakeScene";
 
-import { InterTitle, ArrowLink } from "components/interTitle";
-import getSlideContent from "helpers/getSlideContent";
+import { InterTitle, ArrowLink } from "@/components/interTitle";
+import getSlideContent from "@/helpers/getSlideContent";
 
 const Intro = ({ slideIdx = null }: SceneType) => {
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);

@@ -1,6 +1,6 @@
-import { InterTitle, TitleText, ChoiceText } from "components/interTitle";
+import { InterTitle, TitleText, ChoiceText } from "@/components/interTitle";
 
-import routes from "routes";
+import routes from "@/routes";
 import styles from "./startMenu.module.scss";
 
 interface StartMenuProps {

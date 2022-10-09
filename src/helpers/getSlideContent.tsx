@@ -1,13 +1,13 @@
 import { Fragment } from "react";
 
-import { SlideType, TextType } from "types/slideTypes";
+import { SlideType, TextType } from "@/types/slideTypes";
 
 import {
   TitleText,
   ChoiceText,
   CharacterDialogueText,
   NarrationText,
-} from "components/interTitle";
+} from "@/components/interTitle";
 
 interface getSlideContentProps {
   slides: SlideType[];

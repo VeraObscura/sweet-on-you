@@ -1,4 +1,4 @@
-import { SlideType } from "types/slideTypes";
+import { SlideType } from "@/types/slideTypes";
 
 export const slideText: SlideType[] = [
   {

@@ -11,19 +11,19 @@ import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { forwardRef } from "react";
 
-type GLTFResult = GLTF & {
+export declare type ObjectMapCustom = {
   nodes: {
-    Object_4: THREE.Mesh;
-    Object_5: THREE.Mesh;
+    [name: string]: any;
   };
   materials: {
-    ["Material.001"]: THREE.MeshStandardMaterial;
-    ["Material.005"]: THREE.MeshStandardMaterial;
+    [name: string]: THREE.Material;
   };
 };
 
+type GLTFResult = GLTF & ObjectMapCustom;
+
 export const Model = forwardRef(function Cake(props: any, forwardRef: any) {
-  const { nodes, materials } = useGLTF("/scene.gltf") as GLTFResult;
+  const { nodes, materials } = useGLTF("/scene.gltf") as any;
   return (
     <group ref={forwardRef} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>

@@ -1,6 +1,6 @@
-import { InterTitle, ArrowLink, TitleText } from "components/interTitle";
+import { InterTitle, ArrowLink, TitleText } from "@/components/interTitle";
 
-import routes from "routes";
+import routes from "@/routes";
 import styles from "./about.module.scss";
 
 const About = () => {

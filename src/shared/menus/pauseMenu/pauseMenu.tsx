@@ -1,6 +1,8 @@
 import { InterTitle, ChoiceText, TitleText } from "components/interTitle";
 import styles from "./pauseMenu.module.scss";
 
+const { ipcRenderer } = require("electron");
+
 interface PauseMenuProps {
   onSelectResume: () => void;
   onSelectOptions: () => void;
@@ -8,7 +10,7 @@ interface PauseMenuProps {
 
 const PauseMenu = ({ onSelectResume, onSelectOptions }: PauseMenuProps) => {
   const quitApplication = () => {
-    //window.ipcRenderer.send("close-me")
+    ipcRenderer.send("closeApp", null);
   };
 
   return (
@@ -17,7 +19,10 @@ const PauseMenu = ({ onSelectResume, onSelectOptions }: PauseMenuProps) => {
         <TitleText text="Pause Game" />
         <ChoiceText text="Resume" link={null} onClick={onSelectResume} />
         <ChoiceText text="Options" link={null} onClick={onSelectOptions} />
-        <ChoiceText text="Quit" link={null} onClick={() => quitApplication()} />
+        <ChoiceText text="Quit" link={null} onClick={quitApplication} />
+        <button id={"close-app"} onClick={quitApplication}>
+          Quit
+        </button>
       </InterTitle>
     </div>
   );

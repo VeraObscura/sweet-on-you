@@ -1,4 +1,37 @@
+@import "styles/colors";
+@import "styles/fonts";
+
 .optionsMenu {
   position: absolute;
   z-index: 11;
+
+  .options {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px 0;
+
+      &__text {
+        color: $color-grey-100;
+        font-family: $main-font;
+        text-decoration: none;
+        font-size: 30px;
+        margin: 0;
+      }
+
+      &__input {
+        width: 60%;
+
+        .Dropdown-control {
+          background-color: black !important;
+          color: white !important;
+        }
+      }
+    }
+  }
 }

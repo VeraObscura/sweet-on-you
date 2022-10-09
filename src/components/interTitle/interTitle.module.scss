@@ -1,3 +1,6 @@
+@import "styles/colors";
+@import "styles/fonts";
+
 .interTitleContainer {
   display: flex;
   flex-direction: column;
@@ -7,7 +10,7 @@
   height: 100vh;
   overflow: hidden;
   filter: blur(1px);
-  background-color: rgb(156, 156, 156);
+  background-color: $color-grey-200;
 
   img {
     height: 100%;
@@ -32,8 +35,8 @@
 
     &__titleText,
     &__bodyText {
-      color: rgb(247, 242, 236);
-      font-family: "Eczar", serif;
+      color: $color-grey-100;
+      font-family: $main-font;
       font-size: 50px;
       width: 60%;
       pointer-events: none;
@@ -67,11 +70,11 @@
     }
 
     &__choiceText {
-      color: rgb(247, 242, 236);
-      font-family: "Eczar", serif;
+      color: $color-grey-100;
+      font-family: $main-font;
       text-decoration: none;
       font-size: 40px;
-      border: 1px solid rgb(247, 242, 236);
+      border: 1px solid $color-grey-100;
       margin: 0.25em 0;
       width: 40%;
       cursor: pointer;

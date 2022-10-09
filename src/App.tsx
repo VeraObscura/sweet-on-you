@@ -15,10 +15,10 @@ import BakeryAudition from "scenes/1_bakeryAudition";
 import FirstBigOrder from "scenes/2_firstBigOrder";
 import DreamALittleDream from "scenes/4_dreamALittleDream";
 import CastleInTheAir from "scenes/5_castleIntheAir";
-
-import "./app.scss";
 import ShowMustGoOn from "scenes/6_showMustGoOn";
 import DevilInTheDetails from "scenes/7_devilInTheDetails";
+
+import "./app.scss";
 
 function App() {
   const [displayPauseMenu, setDisplayPauseMenu] = useState(false);

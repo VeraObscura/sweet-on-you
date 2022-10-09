@@ -18,9 +18,12 @@ export const optionsSlice = createSlice({
     setVolume: (state: any, action: PayloadAction<number>) => {
       state.volume = action.payload;
     },
+    setLanguage: (state: any, action: PayloadAction<string>) => {
+      state.language = action.payload;
+    },
   },
 });
 
-export const { setVolume } = optionsSlice.actions;
+export const { setVolume, setLanguage } = optionsSlice.actions;
 
 export default optionsSlice.reducer;

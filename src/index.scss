@@ -1,0 +1,10 @@
+@import "styles/colors";
+@import "styles/fonts";
+
+body {
+  margin: 0;
+  font-family: $main-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $color-grey-200;
+}

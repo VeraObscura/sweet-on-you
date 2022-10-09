@@ -1,7 +1,9 @@
+@import "styles/colors";
+
 .cakeScene {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(30, 11, 11);
+  background-color: $color-red-900;
 
   .uiContainer {
     position: absolute;
@@ -20,7 +22,7 @@
     .uiContainer__button {
       background-color: transparent;
       border: none;
-      color: white;
+      color: $color-white;
       font-size: 40px;
       text-decoration: none;
       pointer-events: all;

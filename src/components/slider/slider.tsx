@@ -13,7 +13,6 @@ const Slider = ({ text, value, onChange }: SliderProps) => {
 
   return (
     <div className={styles.slider}>
-      <p className={styles.slider__text}>{`${text} : ${currentValue}`}</p>
       <div className={styles.customSliderContainer}>
         <ReactSlider
           className={styles.customSlider}

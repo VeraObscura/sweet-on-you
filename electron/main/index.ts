@@ -39,6 +39,7 @@ async function createWindow() {
   win = new BrowserWindow({
     title: "Main window",
     icon: join(process.env.PUBLIC, "favicon.svg"),
+    autoHideMenuBar: true,
     webPreferences: {
       preload,
       nodeIntegration: true,
@@ -52,6 +53,9 @@ async function createWindow() {
     win.loadURL(url);
     // win.webContents.openDevTools()
   }
+
+  win.maximize();
+  win.show();
 
   // Test actively push message to the Electron-Renderer
   win.webContents.on("did-finish-load", () => {

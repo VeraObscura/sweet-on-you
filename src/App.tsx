@@ -18,7 +18,7 @@ import CastleInTheAir from "@/scenes/5_castleIntheAir";
 import ShowMustGoOn from "@/scenes/6_showMustGoOn";
 import DevilInTheDetails from "@/scenes/7_devilInTheDetails";
 
-import "./app.scss";
+import "./App.scss";
 
 function App() {
   const [displayPauseMenu, setDisplayPauseMenu] = useState(false);

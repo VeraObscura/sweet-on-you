@@ -1,5 +1,10 @@
-@use "./styles/colors";
-
 .app {
   text-align: center;
+
+  h1 {
+    @include fluid-type($min_width, $max_width, 30px, 44px);
+  }
+  h2 {
+    @include fluid-type($min_width, $max_width, 24px, 44px);
+  }
 }

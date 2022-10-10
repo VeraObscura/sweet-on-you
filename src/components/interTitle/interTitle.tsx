@@ -42,12 +42,12 @@ export const ChoiceText = ({ text, link, onClick }: ChoiceTextProps) => {
           onClick={onClick}
           to={link}
         >
-          {text && text}
+          <h2>{text && text}</h2>
         </Link>
       ) : (
-        <h1 className={styles.interTitle__choiceText} onClick={onClick}>
+        <h2 className={styles.interTitle__choiceText} onClick={onClick}>
           {text && text}
-        </h1>
+        </h2>
       )}
     </Fragment>
   );
@@ -58,7 +58,7 @@ export const TitleText = ({ text }: TitleTextProps) => {
 };
 
 export const CharacterDialogueText = ({ text }: BodyTextProps) => {
-  return <h1 className={styles.interTitle__bodyText}>{`"${text}"`}</h1>;
+  return <h2 className={styles.interTitle__bodyText}>{`"${text}"`}</h2>;
 };
 
 export const NarrationText = ({
@@ -67,11 +67,11 @@ export const NarrationText = ({
   capitalize = false,
 }: BodyTextProps) => {
   return (
-    <h1
+    <h2
       className={`${styles.interTitle__bodyText} ${
         italic && styles.interTitle__italicizedText
       } ${capitalize && styles.interTitle__capitalizedText}`}
-    >{`${text}`}</h1>
+    >{`${text}`}</h2>
   );
 };
 

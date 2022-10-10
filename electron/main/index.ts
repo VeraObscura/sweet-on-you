@@ -40,6 +40,10 @@ async function createWindow() {
     title: "Main window",
     icon: join(process.env.PUBLIC, "favicon.svg"),
     autoHideMenuBar: true,
+    minHeight: 600,
+    maxHeight: 1350,
+    minWidth: 800,
+    maxWidth: 1800,
     webPreferences: {
       preload,
       nodeIntegration: true,
@@ -54,8 +58,8 @@ async function createWindow() {
     // win.webContents.openDevTools()
   }
 
-  win.maximize();
-  win.show();
+  // win.maximize();
+  // win.show();
 
   // Test actively push message to the Electron-Renderer
   win.webContents.on("did-finish-load", () => {

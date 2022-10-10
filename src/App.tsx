@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import ActionPanel from "shared/actionPanel";
-//import Phonograph from "shared/phonograph";
-import StartMenu from "shared/menus/startMenu";
-import PauseMenu from "shared/menus/pauseMenu";
-import About from "shared/menus/about";
-import Intro from "scenes/0_intro";
-import CustomerIsAlwaysRight from "scenes/3_customerIsAlwaysRight";
+import ActionPanel from "@/shared/actionPanel";
+//import Phonograph from "@/shared/phonograph";
+import StartMenu from "@/shared/menus/startMenu";
+import PauseMenu from "@/shared/menus/pauseMenu";
+import About from "@/shared/menus/about";
+import Intro from "@/scenes/0_intro";
+import CustomerIsAlwaysRight from "@/scenes/3_customerIsAlwaysRight";
 import routes from "./routes";
 
-import OptionsMenu from "shared/menus/optionsMenu";
-import BakeryAudition from "scenes/1_bakeryAudition";
-import FirstBigOrder from "scenes/2_firstBigOrder";
-import DreamALittleDream from "scenes/4_dreamALittleDream";
-import CastleInTheAir from "scenes/5_castleIntheAir";
-import ShowMustGoOn from "scenes/6_showMustGoOn";
-import DevilInTheDetails from "scenes/7_devilInTheDetails";
+import OptionsMenu from "@/shared/menus/optionsMenu";
+import BakeryAudition from "@/scenes/1_bakeryAudition";
+import FirstBigOrder from "@/scenes/2_firstBigOrder";
+import DreamALittleDream from "@/scenes/4_dreamALittleDream";
+import CastleInTheAir from "@/scenes/5_castleIntheAir";
+import ShowMustGoOn from "@/scenes/6_showMustGoOn";
+import DevilInTheDetails from "@/scenes/7_devilInTheDetails";
 
 import "./app.scss";
 

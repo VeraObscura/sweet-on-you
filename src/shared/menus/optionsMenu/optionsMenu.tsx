@@ -1,14 +1,14 @@
 import { useDispatch } from "react-redux";
-import { useAppSelector } from "redux/hooks";
+import { useAppSelector } from "@/redux/hooks";
 import Dropdown from "react-dropdown";
 
 // Components
-import { InterTitle, ArrowLink, TitleText } from "components/interTitle";
-import Slider from "components/slider";
+import { InterTitle, ArrowLink, TitleText } from "@/components/interTitle";
+import Slider from "@/components/slider";
 
 // Components
-import { RootState } from "redux/store";
-import { setVolume, setLanguage } from "redux/slices/optionsSlice";
+import { RootState } from "@/redux/store";
+import { setVolume, setLanguage } from "@/redux/slices/optionsSlice";
 
 // Styles
 import styles from "./optionsMenu.module.scss";

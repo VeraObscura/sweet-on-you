@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { Cylinder, useTexture } from "@react-three/drei";
-import ceramic from "assets/textures/ceramic.jpg";
+import ceramic from "@/assets/textures/ceramic.jpg";
 
 interface PlateProps {
   rotation: THREE.Euler;

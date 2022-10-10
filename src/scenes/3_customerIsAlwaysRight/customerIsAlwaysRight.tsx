@@ -1,14 +1,14 @@
 import { Fragment, useCallback, useState } from "react";
 
-import { SceneType } from "types/sceneTypes";
-import { useAppSelector } from "redux/hooks";
+import { SceneType } from "@/types/sceneTypes";
+import { useAppSelector } from "@/redux/hooks";
 import { slidesA } from "./text";
 import BakeryStoreFront from "./components/bakeryStoreFront/bakeryStoreFront";
 
-import routes from "routes";
+import routes from "@/routes";
 
-import { InterTitle, ArrowLink } from "components/interTitle";
-import getSlideContent from "helpers/getSlideContent";
+import { InterTitle, ArrowLink } from "@/components/interTitle";
+import getSlideContent from "@/helpers/getSlideContent";
 
 const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);

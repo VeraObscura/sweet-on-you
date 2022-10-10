@@ -6,12 +6,12 @@ import { Canvas, ThreeEvent } from "@react-three/fiber";
 import { Cylinder } from "@react-three/drei";
 //import { Model } from "./Scene";
 
-import CameraController from "components/3D/cameraController/cameraController";
-import UIContainer from "shared/uiContainer";
-import Table from "components/3D/table";
-//import Plate from "components/3D/plate";
+import CameraController from "@/components/3D/cameraController/cameraController";
+import UIContainer from "@/shared/uiContainer";
+import Table from "@/components/3D/table";
+//import Plate from "@/components/3D/plate";
 
-import ceramic from "assets/textures/ceramic.jpg";
+import ceramic from "@/assets/textures/ceramic.jpg";
 import styles from "./crumbCoatScene.module.scss";
 
 // const Cake = () => {

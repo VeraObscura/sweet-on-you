@@ -1,4 +1,4 @@
-import UIContainer from "shared/uiContainer";
+import UIContainer from "@/shared/uiContainer";
 
 import styles from "./bakeryStoreFront.module.scss";
 

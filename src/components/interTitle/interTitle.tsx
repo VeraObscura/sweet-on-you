@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import FilmGrain from "shared/filmGrain";
+import FilmGrain from "@/shared/filmGrain";
 
-import interTitleBackground from "assets/images/interTitle.jpg";
+import interTitleBackground from "@/assets/images/interTitle.jpg";
 import styles from "./interTitle.module.scss";
 import { Link } from "react-router-dom";
 

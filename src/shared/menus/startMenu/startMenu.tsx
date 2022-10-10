@@ -1,6 +1,8 @@
-import { InterTitle, TitleText, ChoiceText } from "components/interTitle";
+import { InterTitle, TitleText, ChoiceText } from "@/components/interTitle";
 
-import routes from "routes";
+import { quitApplication } from "@/helpers/closeApplication";
+
+import routes from "@/routes";
 import styles from "./startMenu.module.scss";
 
 interface StartMenuProps {
@@ -15,6 +17,7 @@ const StartMenu = ({ onSelectOptions }: StartMenuProps) => {
         <ChoiceText text="Start Game" link={routes.INTRO} />
         <ChoiceText text="Options" link={null} onClick={onSelectOptions} />
         <ChoiceText text="About" link={routes.ABOUT} />
+        <ChoiceText text="Quit" link={null} onClick={quitApplication} />
       </InterTitle>
     </div>
   );

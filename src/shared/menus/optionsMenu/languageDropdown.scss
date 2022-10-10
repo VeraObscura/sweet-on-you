@@ -1,10 +1,8 @@
-@import "@/styles/colors";
-
 .languageDropdown {
   &__control {
     background-color: $color-grey-700 !important;
     color: $color-white !important;
-    font-size: 20px !important;
+    // font-size: 20px !important;
 
     .Dropdown-placeholder {
       margin-left: 35px;
@@ -13,7 +11,7 @@
 
   &__menu {
     color: $color-white !important;
-    font-size: 20px !important;
+    // font-size: 20px !important;
 
     .Dropdown-option {
       background-color: $color-grey-700 !important;

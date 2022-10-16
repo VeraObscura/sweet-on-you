@@ -1,14 +1,17 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
+import { useAppSelector } from "@/redux/hooks";
 
 import { SceneType } from "@/types/sceneTypes";
-import { useAppSelector } from "@/redux/hooks";
 import { slideText, pathA } from "./text";
-import BakeryStoreFront from "./components/bakeryStoreFront/bakeryStoreFront";
+import { InterTitle, ArrowLink } from "@/components/interTitle";
+import SceneBackground from "@/components/sceneBackground/sceneBackground";
+import getSlideContent from "@/helpers/getSlideContent";
+
+import bakeryInterior from "@/assets/images/bakeryInterior4.jpg";
+import bakeryStoreFront from "@/assets/images/bakeryExterior5.jpg";
+import halfEatenCake from "@/assets/images/halfEatenCake.jpg";
 
 import routes from "@/routes";
-
-import { InterTitle, ArrowLink } from "@/components/interTitle";
-import getSlideContent from "@/helpers/getSlideContent";
 
 const BakeryAudition = ({ slideIdx = null }: SceneType) => {
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
@@ -50,11 +53,29 @@ const BakeryAudition = ({ slideIdx = null }: SceneType) => {
   const renderSlide = (stepName: string | undefined) => {
     switch (stepName) {
       case "bakeryStoreFront":
-        return <BakeryStoreFront link={null} onClick={handleNextSlide} />;
+        return (
+          <SceneBackground
+            link={null}
+            onClick={handleNextSlide}
+            imageSrc={bakeryStoreFront}
+          />
+        );
       case "bakeryInterior":
-        return <BakeryStoreFront link={null} onClick={handleNextSlide} />;
+        return (
+          <SceneBackground
+            link={null}
+            onClick={handleNextSlide}
+            imageSrc={bakeryInterior}
+          />
+        );
       case "cakeEaten":
-        return <BakeryStoreFront link={null} onClick={handleNextSlide} />;
+        return (
+          <SceneBackground
+            link={null}
+            onClick={handleNextSlide}
+            imageSrc={halfEatenCake}
+          />
+        );
       default:
         return (
           <InterTitle justifyCentered={!slides[slideIndex].title}>

@@ -54,7 +54,13 @@ export const ChoiceText = ({ text, link, onClick }: ChoiceTextProps) => {
 };
 
 export const TitleText = ({ text }: TitleTextProps) => {
-  return <h1 className={styles.interTitle__titleText}>{text}</h1>;
+  return (
+    <div className={styles.interTitle__titleText}>
+      <div className={styles.interTitle__titleText__text}>
+        <h1>{text}</h1>
+      </div>
+    </div>
+  );
 };
 
 export const CharacterDialogueText = ({ text }: BodyTextProps) => {
@@ -115,7 +121,6 @@ export const InterTitle = ({
 }: InterTitleProps) => {
   return (
     <div className={styles.interTitleContainer}>
-      <FilmGrain />
       <div
         className={`${styles.interTitle} ${
           justifyCentered && styles.interTitle__justifyCentered

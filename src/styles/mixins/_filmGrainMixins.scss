@@ -1,0 +1,42 @@
+@mixin get-background($num) {
+  opacity: 0.1;
+  @if ($num == 1) {
+    background-image: url("../../assets/images/grain/1.jpg");
+  }
+  @if ($num == 2) {
+    background-image: url("../../assets/images/grain/3.jpg");
+  }
+  @if ($num == 3) {
+    background-image: url("../../assets/images/grain/3.jpg");
+  }
+  @if ($num == 4) {
+    background-image: url("../../assets/images/grain/4.jpg");
+  }
+  @if ($num == 5) {
+    background-image: url("../../assets/images/grain/5.jpg");
+  }
+  @if ($num == 6) {
+    background-image: url("../../assets/images/grain/6.jpg");
+  }
+  @if ($num == 7) {
+    background-image: url("../../assets/images/grain/7.jpg");
+  }
+  @if ($num == 8) {
+    background-image: url("../../assets/images/grain/8.jpg");
+  }
+  @if ($num == 9) {
+    background-image: url("../../assets/images/grain/9.jpg");
+  }
+  @if ($num == 10) {
+    background-image: url("../../assets/images/grain/10.jpg");
+  }
+}
+
+@mixin get-flicker($num) {
+  background-color: $color-black;
+  @if ($num == 1) {
+    opacity: 1;
+  } @else {
+    opacity: 0;
+  }
+}

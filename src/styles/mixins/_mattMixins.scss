@@ -1,0 +1,17 @@
+@mixin film-matt() {
+  width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+@mixin matt-display() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin move-element() {
+  top: -2px;
+  left: 10px;
+}

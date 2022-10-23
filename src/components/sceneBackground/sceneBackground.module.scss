@@ -1,0 +1,17 @@
+.sceneBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-black;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__image {
+    width: 80%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+  }
+}

@@ -15,7 +15,8 @@
     "node": "^14.18.0 || >=16.0.0"
   },
   "dependencies": {
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "twgl.js": "^5.0.4"
   },
   "devDependencies": {
     "@react-spring/three": "^9.5.5",

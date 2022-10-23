@@ -1,10 +1,10 @@
 .interTitleContainer {
+  @include film-matt;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
   filter: blur(1px);
   background-color: $color-grey-200;
@@ -15,6 +15,8 @@
     position: absolute;
     z-index: -1;
     opacity: 0.8;
+    background-image: url(../images/interTitle/interTitleBackground.jpg);
+    animation: move-element 0.5s steps(2, end) infinite;
   }
 
   .interTitle {
@@ -24,10 +26,6 @@
     justify-content: center;
     width: 65%;
     height: 75%;
-
-    &__justifyCentered {
-      //justify-content: center;
-    }
 
     &__titleText,
     &__bodyText {
@@ -48,9 +46,38 @@
 
     &__titleText {
       text-transform: uppercase;
-      text-decoration: underline;
       position: absolute;
       top: 10vh;
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      animation: move-text 0.5s steps(2, end) infinite;
+
+      h1 {
+        position: relative;
+      }
+
+      h1:before {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 5px;
+        bottom: 0;
+        left: 20%;
+        border-bottom: 3px solid $color-grey-100;
+      }
+    }
+
+    &__bodyText {
+      animation: move-text2 0.5s steps(2, end) infinite;
+    }
+
+    &__choiceTextContainer {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      height: auto;
+      animation: move-text 0.5s steps(2, end) infinite;
     }
 
     &__choiceText {
@@ -58,8 +85,8 @@
       font-family: $main-font;
       text-decoration: none;
       border: 1px solid $color-grey-100;
+      white-space: nowrap;
       margin: 0.25em 0;
-      width: 40%;
       cursor: pointer;
 
       h2 {
@@ -75,6 +102,7 @@
 
     &__arrowLink {
       background-color: transparent;
+      font-size: 2em;
       border: none;
       color: white;
       text-decoration: none;
@@ -83,10 +111,29 @@
       z-index: 1;
       bottom: 15vh;
       cursor: pointer;
+      animation: move-text2 0.5s steps(2, end) infinite;
     }
 
     &__arrowLinkBack {
       transform: rotate(180deg);
     }
+  }
+}
+
+@keyframes move-element {
+  to {
+    left: -1px;
+  }
+}
+
+@keyframes move-text {
+  to {
+    margin-left: -4px;
+  }
+}
+
+@keyframes move-text2 {
+  to {
+    margin-left: -5px;
   }
 }

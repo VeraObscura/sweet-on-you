@@ -12,8 +12,10 @@ export const UIContainer = ({ link, onClick }: UIContainerProps) => {
     <div className={styles.uiContainer}>
       <FilmGrain />
       {link ? (
-        <Link className={styles.uiContainer__button} to={link}>
-          ➜
+        <Link to={link}>
+          <h1 className={styles.uiContainer__button} onClick={onClick}>
+            ➜
+          </h1>
         </Link>
       ) : (
         <h1 className={styles.uiContainer__button} onClick={onClick}>

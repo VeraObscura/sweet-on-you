@@ -4,6 +4,7 @@ import { SlideType, TextType } from "@/types/slideTypes";
 
 import {
   TitleText,
+  ChoiceTextContainer,
   ChoiceText,
   CharacterDialogueText,
   NarrationText,
@@ -50,7 +51,9 @@ const getSlideContent = ({
         {slide.dialogue && (
           <CharacterDialogueText text={slide.dialogue[language]} />
         )}
-        {slide.choices && choiceContent(slide.choices)}
+        <ChoiceTextContainer>
+          {slide.choices && choiceContent(slide.choices)}
+        </ChoiceTextContainer>
       </Fragment>
     );
   });

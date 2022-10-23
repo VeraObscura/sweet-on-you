@@ -1,4 +1,9 @@
-import { InterTitle, ChoiceText, TitleText } from "@/components/interTitle";
+import {
+  InterTitle,
+  ChoiceTextContainer,
+  ChoiceText,
+  TitleText,
+} from "@/components/interTitle";
 import styles from "./pauseMenu.module.scss";
 
 import { quitApplication } from "@/helpers/closeApplication";
@@ -13,9 +18,11 @@ const PauseMenu = ({ onSelectResume, onSelectOptions }: PauseMenuProps) => {
     <div className={styles.pauseMenu}>
       <InterTitle>
         <TitleText text="Pause Game" />
-        <ChoiceText text="Resume" link={null} onClick={onSelectResume} />
-        <ChoiceText text="Options" link={null} onClick={onSelectOptions} />
-        <ChoiceText text="Quit" link={null} onClick={quitApplication} />
+        <ChoiceTextContainer>
+          <ChoiceText text="Resume" link={null} onClick={onSelectResume} />
+          <ChoiceText text="Options" link={null} onClick={onSelectOptions} />
+          <ChoiceText text="Quit" link={null} onClick={quitApplication} />
+        </ChoiceTextContainer>
       </InterTitle>
     </div>
   );

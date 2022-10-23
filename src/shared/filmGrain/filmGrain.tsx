@@ -19,7 +19,8 @@ const FilmGrain = ({ hasVignette = true }: FilmGrainProps) => {
 
   return (
     <div className={styles.filmGrain}>
-      <canvas id="grain"></canvas>
+      <div className={styles.filmGrain__flicker}></div>
+      <canvas className={styles.filmGrain__grain} id="grain"></canvas>
       {hasVignette && <div className={styles.filmGrain__vignette} />}
       <div className={styles.filmGrain__scratches}></div>
     </div>

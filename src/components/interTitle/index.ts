@@ -1,4 +1,5 @@
 export {
+  ChoiceTextContainer,
   ChoiceText,
   TitleText,
   CharacterDialogueText,

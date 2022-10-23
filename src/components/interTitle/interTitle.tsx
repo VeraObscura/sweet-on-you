@@ -5,6 +5,10 @@ import interTitleBackground from "@/assets/images/interTitle.jpg";
 import styles from "./interTitle.module.scss";
 import { Link } from "react-router-dom";
 
+interface ChoiceTextConatinerProps {
+  children: React.ReactNode;
+}
+
 interface ChoiceTextProps {
   text: string | undefined;
   link: string | null;
@@ -29,9 +33,14 @@ interface BodyTextProps {
 }
 
 interface InterTitleProps {
-  justifyCentered?: boolean;
   children: React.ReactNode;
 }
+
+export const ChoiceTextContainer = ({ children }: ChoiceTextConatinerProps) => {
+  return (
+    <div className={styles.interTitle__choiceTextContainer}>{children}</div>
+  );
+};
 
 export const ChoiceText = ({ text, link, onClick }: ChoiceTextProps) => {
   return (
@@ -42,12 +51,12 @@ export const ChoiceText = ({ text, link, onClick }: ChoiceTextProps) => {
           onClick={onClick}
           to={link}
         >
-          <h2>{text && text}</h2>
+          <h3 style={{ margin: "0" }}>{text && text}</h3>
         </Link>
       ) : (
-        <h2 className={styles.interTitle__choiceText} onClick={onClick}>
+        <h3 className={styles.interTitle__choiceText} onClick={onClick}>
           {text && text}
-        </h2>
+        </h3>
       )}
     </Fragment>
   );
@@ -115,19 +124,10 @@ export const ArrowLink = ({
   );
 };
 
-export const InterTitle = ({
-  children,
-  justifyCentered = false,
-}: InterTitleProps) => {
+export const InterTitle = ({ children }: InterTitleProps) => {
   return (
     <div className={styles.interTitleContainer}>
-      <div
-        className={`${styles.interTitle} ${
-          justifyCentered && styles.interTitle__justifyCentered
-        }`}
-      >
-        {children}
-      </div>
+      <div className={`${styles.interTitle}`}>{children}</div>
       <img src={interTitleBackground} alt={"interTitle"} />
     </div>
   );

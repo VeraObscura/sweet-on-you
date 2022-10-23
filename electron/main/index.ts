@@ -42,7 +42,7 @@ async function createWindow() {
     autoHideMenuBar: true,
     minHeight: 600,
     maxHeight: 1350,
-    minWidth: 800,
+    minWidth: 850,
     maxWidth: 1800,
     webPreferences: {
       preload,

@@ -46,7 +46,7 @@ function useLoading() {
   animation-fill-mode: both;
   width: 50px;
   height: 50px;
-  background: #fff;
+  background: rgb(46, 46, 46);
   animation: square-spin 3s 0s cubic-bezier(0.09, 0.57, 0.49, 0.9) infinite;
 }
 .app-loading-wrap {
@@ -58,7 +58,7 @@ function useLoading() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(46, 46, 46);
+  background: rgb(0, 0, 0);
   z-index: 9;
 }
     `;

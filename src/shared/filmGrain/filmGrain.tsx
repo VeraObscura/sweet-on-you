@@ -1,11 +1,15 @@
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import styles from "./filmGrain.module.scss";
 
 interface FilmGrainProps {
-  hasVignette?: boolean;
+  hasAnimatedVignette?: boolean;
+  customVignette?: React.ReactNode;
 }
 
-const FilmGrain = ({ hasVignette = true }: FilmGrainProps) => {
+const FilmGrain = ({
+  customVignette = null,
+  hasAnimatedVignette = false,
+}: FilmGrainProps) => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "src/shared/filmGrain/grainRenderer.js";
@@ -21,7 +25,17 @@ const FilmGrain = ({ hasVignette = true }: FilmGrainProps) => {
     <div className={styles.filmGrain}>
       <div className={styles.filmGrain__flicker}></div>
       <canvas className={styles.filmGrain__grain} id="grain"></canvas>
-      {hasVignette && <div className={styles.filmGrain__vignette} />}
+      {customVignette ? (
+        customVignette
+      ) : (
+        <div
+          className={
+            hasAnimatedVignette
+              ? styles.filmGrain__animatedVignette
+              : styles.filmGrain__vignette
+          }
+        />
+      )}
       <div className={styles.filmGrain__scratches}></div>
     </div>
   );

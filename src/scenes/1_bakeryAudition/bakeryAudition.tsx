@@ -7,8 +7,8 @@ import { InterTitle, ArrowLink } from "@/components/interTitle";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
 import getSlideContent from "@/helpers/getSlideContent";
 
-import bakeryInterior from "@/assets/images/bakeryInterior4.jpg";
-import bakeryStoreFront from "@/assets/images/bakeryExterior5.jpg";
+import bakeryInterior from "@/assets/images/bakeryInterior.jpg";
+import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
 import halfEatenCake from "@/assets/images/halfEatenCake.jpg";
 
 import routes from "@/routes";
@@ -17,7 +17,7 @@ const BakeryAudition = ({ slideIdx = null }: SceneType) => {
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
   const [slides, setSlides] = useState(slideText);
   const [choiceIndex, setChoiceIndex] = useState<number | null>(null);
-  const language = useAppSelector((state) => state.options.language);
+  const language = useAppSelector((state: any) => state.options.language);
 
   const checkSlidesOver = useCallback(() => {
     if (slideIndex >= slides.length - 1) {
@@ -54,31 +54,37 @@ const BakeryAudition = ({ slideIdx = null }: SceneType) => {
     switch (stepName) {
       case "bakeryStoreFront":
         return (
-          <SceneBackground
-            link={null}
-            onClick={handleNextSlide}
-            imageSrc={bakeryStoreFront}
-          />
+          <InterTitle hasBackground={false}>
+            <SceneBackground
+              link={null}
+              onClick={handleNextSlide}
+              imageSrc={bakeryStoreFront}
+            />
+          </InterTitle>
         );
       case "bakeryInterior":
         return (
-          <SceneBackground
-            link={null}
-            onClick={handleNextSlide}
-            imageSrc={bakeryInterior}
-          />
+          <InterTitle hasBackground={false}>
+            <SceneBackground
+              link={null}
+              onClick={handleNextSlide}
+              imageSrc={bakeryInterior}
+            />
+          </InterTitle>
         );
       case "cakeEaten":
         return (
-          <SceneBackground
-            link={null}
-            onClick={handleNextSlide}
-            imageSrc={halfEatenCake}
-          />
+          <InterTitle hasBackground={false}>
+            <SceneBackground
+              link={null}
+              onClick={handleNextSlide}
+              imageSrc={halfEatenCake}
+            />
+          </InterTitle>
         );
       default:
         return (
-          <InterTitle justifyCentered={!slides[slideIndex].title}>
+          <InterTitle>
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && (
               <ArrowLink

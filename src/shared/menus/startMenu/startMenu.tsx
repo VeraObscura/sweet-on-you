@@ -15,7 +15,7 @@ interface StartMenuProps {
 
 const StartMenu = ({ onSelectOptions }: StartMenuProps) => {
   return (
-    <InterTitle>
+    <InterTitle hasAnimatedVignette={true}>
       <TitleText text="Sweet on You" />
       <ChoiceTextContainer>
         <ChoiceText text="Start Game" link={routes.INTRO} />

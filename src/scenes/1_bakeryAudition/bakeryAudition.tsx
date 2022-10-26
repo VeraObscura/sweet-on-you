@@ -78,7 +78,7 @@ const BakeryAudition = ({ slideIdx = null }: SceneType) => {
         );
       default:
         return (
-          <InterTitle justifyCentered={!slides[slideIndex].title}>
+          <InterTitle>
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && (
               <ArrowLink

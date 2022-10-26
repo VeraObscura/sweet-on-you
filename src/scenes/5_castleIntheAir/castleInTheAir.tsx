@@ -36,7 +36,7 @@ const CastleInTheAir = ({ slideIdx = null }: SceneType) => {
         return <BakeryStoreFront link={null} onClick={handleNextSlide} />;
       default:
         return (
-          <InterTitle justifyCentered={!slides[slideIndex].title}>
+          <InterTitle>
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && (
               <ArrowLink

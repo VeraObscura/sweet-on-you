@@ -19,7 +19,6 @@ import ShowMustGoOn from "@/scenes/6_showMustGoOn";
 import DevilInTheDetails from "@/scenes/7_devilInTheDetails";
 
 import "./App.scss";
-import FilmGrain from "./shared/filmGrain";
 
 function App() {
   const [displayPauseMenu, setDisplayPauseMenu] = useState(false);
@@ -27,7 +26,6 @@ function App() {
 
   return (
     <div className="app">
-      <FilmGrain />
       <main className="main">
         <ActionPanel
           onEsc={() => {

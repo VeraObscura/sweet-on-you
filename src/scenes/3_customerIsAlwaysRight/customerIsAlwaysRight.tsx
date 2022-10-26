@@ -3,17 +3,19 @@ import { Fragment, useCallback, useState } from "react";
 import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slidesA } from "./text";
-import BakeryStoreFront from "./components/bakeryStoreFront/bakeryStoreFront";
+import SceneBackground from "@/components/sceneBackground/sceneBackground";
 
 import routes from "@/routes";
 
 import { InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
 
+import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
+
 const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
   const slides = slidesA;
-  const language = useAppSelector((state) => state.options.language);
+  const language = useAppSelector((state: any) => state.options.language);
 
   const checkSlidesOver = useCallback(() => {
     if (slideIndex >= slides.length - 1) {
@@ -33,7 +35,15 @@ const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
   const renderSlide = (stepName: string | undefined) => {
     switch (stepName) {
       case "bakeryStoreFront":
-        return <BakeryStoreFront link={null} onClick={handleNextSlide} />;
+        return (
+          <InterTitle hasBackground={false}>
+            <SceneBackground
+              link={null}
+              onClick={handleNextSlide}
+              imageSrc={bakeryStoreFront}
+            />
+          </InterTitle>
+        );
       default:
         return (
           <InterTitle>

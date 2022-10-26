@@ -34,6 +34,7 @@ interface BodyTextProps {
 
 interface InterTitleProps {
   children: React.ReactNode;
+  hasBackground?: boolean;
 }
 
 export const ChoiceTextContainer = ({ children }: ChoiceTextConatinerProps) => {
@@ -124,11 +125,19 @@ export const ArrowLink = ({
   );
 };
 
-export const InterTitle = ({ children }: InterTitleProps) => {
+export const InterTitle = ({
+  children,
+  hasBackground = true,
+}: InterTitleProps) => {
   return (
-    <div className={styles.interTitleContainer}>
-      <div className={`${styles.interTitle}`}>{children}</div>
-      <img src={interTitleBackground} alt={"interTitle"} />
+    <div className={styles.container}>
+      <FilmGrain />
+      <div className={styles.interTitleContainer}>
+        <div className={`${styles.interTitle}`}>{children}</div>
+        {hasBackground && (
+          <img src={interTitleBackground} alt={"interTitle-background"} />
+        )}
+      </div>
     </div>
   );
 };

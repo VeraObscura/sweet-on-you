@@ -64,12 +64,20 @@ const Intro = ({ slideIdx = null }: SceneType) => {
   const renderSlide = (stepName: string | undefined) => {
     switch (stepName) {
       case "crumbCoat":
-        return <CrumbCoatScene link={null} onClick={handleNextSlide} />;
+        return (
+          <InterTitle hasBackground={false}>
+            <CrumbCoatScene link={null} onClick={handleNextSlide} />
+          </InterTitle>
+        );
       case "cakeScene":
-        return <CakeScene link={routes.BAKERY_AUDITION} />;
+        return (
+          <InterTitle hasBackground={false}>
+            <CakeScene link={routes.BAKERY_AUDITION} />
+          </InterTitle>
+        );
       default:
         return (
-          <InterTitle justifyCentered={!slides[slideIndex].title}>
+          <InterTitle>
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && (
               <ArrowLink

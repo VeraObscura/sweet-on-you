@@ -1,139 +1,141 @@
-.interTitleContainer {
-  @include film-matt;
+.container {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: move-element 0.5s steps(2, end) infinite;
+  clip-path: inset(3% 13% 3% 13% round 10%);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  filter: blur(1px);
-  background-color: $color-grey-200;
+  .interTitleContainer {
+    @include film-matt;
 
-  img {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.8;
-    background-image: url(../images/interTitle/interTitleBackground.jpg);
-    animation: move-element 0.5s steps(2, end) infinite;
-  }
-
-  .interTitle {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 65%;
-    height: 75%;
+    overflow: hidden;
+    filter: blur(1px);
+    background-color: $color-grey-200;
+    position: absolute;
+    top: 0;
+    left: 10%;
 
-    &__titleText,
-    &__bodyText {
-      color: $color-grey-100;
-      font-family: $main-font;
-      width: 60%;
-      pointer-events: none;
-      cursor: none;
-    }
-
-    &__italicizedText {
-      font-style: italic;
-    }
-
-    &__capitalizedText {
-      text-transform: uppercase;
-    }
-
-    &__titleText {
-      text-transform: uppercase;
+    img {
+      height: 100%;
+      width: 100%;
       position: absolute;
-      top: 10vh;
-      width: 60%;
-      display: flex;
-      justify-content: center;
-      animation: move-text 0.5s steps(2, end) infinite;
-
-      h1 {
-        position: relative;
-      }
-
-      h1:before {
-        content: "";
-        position: absolute;
-        width: 60%;
-        height: 5px;
-        bottom: 0;
-        left: 20%;
-        border-bottom: 3px solid $color-grey-100;
-      }
+      z-index: -1;
+      opacity: 0.8;
+      background-image: url(../images/interTitle/interTitleBackground.jpg);
+      animation: move-element 0.5s steps(2, end) infinite;
     }
 
-    &__bodyText {
-      animation: move-text2 0.5s steps(2, end) infinite;
-    }
-
-    &__choiceTextContainer {
+    .interTitle {
       display: flex;
       flex-direction: column;
-      width: 40%;
-      height: auto;
-      animation: move-text 0.5s steps(2, end) infinite;
-    }
+      align-items: center;
+      justify-content: center;
+      width: 65%;
+      height: 75%;
+      z-index: 10001;
 
-    &__choiceText {
-      color: $color-grey-100;
-      font-family: $main-font;
-      text-decoration: none;
-      border: 1px solid $color-grey-100;
-      white-space: nowrap;
-      margin: 0.25em 0;
-      cursor: pointer;
-
-      h2 {
-        margin: 0;
+      &__titleText,
+      &__bodyText {
+        color: $color-grey-100;
+        font-family: $main-font;
+        width: 60%;
+        pointer-events: none;
+        cursor: none;
       }
 
-      &:hover {
+      &__italicizedText {
+        font-style: italic;
+      }
+
+      &__capitalizedText {
+        text-transform: uppercase;
+      }
+
+      &__titleText {
+        text-transform: uppercase;
+        width: 60%;
+        display: flex;
+        justify-content: center;
+
+        h1 {
+          position: relative;
+        }
+
+        h1:before {
+          content: "";
+          position: absolute;
+          width: 60%;
+          height: 5px;
+          bottom: 0;
+          left: 20%;
+          border-bottom: 3px solid $color-grey-100;
+        }
+      }
+
+      &__choiceTextContainer {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        height: auto;
+      }
+
+      &__choiceText {
+        color: $color-grey-100;
+        font-family: $main-font;
+        text-decoration: none;
+        border: 1px solid $color-grey-100;
+        white-space: nowrap;
+        margin: 0.25em 0;
+        cursor: pointer;
+
+        h2 {
+          margin: 0;
+        }
+
+        &:hover {
+          pointer-events: all;
+          background-color: silver;
+          color: black;
+        }
+      }
+
+      &__arrowLink {
+        background-color: transparent;
+        font-size: 2em;
+        border: none;
+        color: white;
+        text-decoration: none;
         pointer-events: all;
-        background-color: silver;
-        color: black;
+        vertical-align: bottom;
+        cursor: pointer;
       }
-    }
 
-    &__arrowLink {
-      background-color: transparent;
-      font-size: 2em;
-      border: none;
-      color: white;
-      text-decoration: none;
-      pointer-events: all;
-      position: absolute;
-      z-index: 1;
-      bottom: 15vh;
-      cursor: pointer;
-      animation: move-text2 0.5s steps(2, end) infinite;
-    }
-
-    &__arrowLinkBack {
-      transform: rotate(180deg);
+      &__arrowLinkBack {
+        transform: rotate(180deg);
+      }
     }
   }
 }
 
 @keyframes move-element {
-  to {
+  0%,
+  100% {
     left: -1px;
   }
-}
-
-@keyframes move-text {
-  to {
-    margin-left: -4px;
+  25% {
+    left: 0px;
   }
-}
-
-@keyframes move-text2 {
-  to {
-    margin-left: -5px;
+  50% {
+    top: 1px;
+  }
+  75% {
+    top: 1px;
+    left: -1px;
   }
 }

@@ -66,6 +66,8 @@
     left: 50%;
     animation: animate-vignette 1s;
     filter: blur(20px);
+    pointer-events: none;
+    cursor: none;
   }
 
   &__scratches {

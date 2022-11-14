@@ -45,7 +45,7 @@
     height: 95vh;
     top: 2.5%;
     left: 10%;
-    background: radial-gradient(transparent 60%, black), transparent;
+    background: radial-gradient(transparent 70%, black), transparent;
     position: absolute;
     z-index: 999;
     pointer-events: none;
@@ -59,7 +59,7 @@
     z-index: 2;
     transform: translate(-50%, -50%); /* Border */
     border-radius: 50%;
-    width: 70%;
+    width: 80%;
     padding-bottom: 70%; /* Position */
     border: solid 400px rgba(0, 0, 0, 0.5);
     top: 50%;
@@ -141,7 +141,7 @@
     left: 50%;
   }
   100% {
-    width: 70%;
+    width: 80%;
     padding-bottom: 70%; /* Position */
     border: solid 400px rgba(0, 0, 0, 0.5);
     top: 50%;

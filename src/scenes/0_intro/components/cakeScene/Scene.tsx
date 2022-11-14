@@ -23,7 +23,7 @@ export declare type ObjectMapCustom = {
 type GLTFResult = GLTF & ObjectMapCustom;
 
 export const Model = forwardRef(function Cake(props: any, forwardRef: any) {
-  const { nodes, materials } = useGLTF("/scene.gltf") as GLTFResult;
+  const { nodes, materials } = useGLTF("/3d/cake.gltf") as GLTFResult;
   return (
     <group ref={forwardRef} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -74,4 +74,4 @@ export const Model = forwardRef(function Cake(props: any, forwardRef: any) {
   );
 });
 
-useGLTF.preload("/scene.gltf");
+useGLTF.preload("/3d/cake.gltf");

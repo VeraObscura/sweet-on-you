@@ -3,7 +3,12 @@ export interface TextType {
   es?: string | undefined;
 }
 
+export interface MetaType {
+  hasVignette: boolean;
+}
+
 export interface SlideType {
+  meta?: MetaType;
   chapter?: TextType;
   title?: TextType;
   context?: TextType;

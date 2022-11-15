@@ -77,7 +77,11 @@ const Intro = ({ slideIdx = null }: SceneType) => {
         );
       default:
         return (
-          <InterTitle>
+          <InterTitle
+            hasAnimatedVignette={
+              slides[slideIndex].meta?.hasVignette ? true : false
+            }
+          >
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && (
               <ArrowLink

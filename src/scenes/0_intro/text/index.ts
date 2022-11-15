@@ -2,6 +2,9 @@ import { SlideType } from "@/types/slideTypes";
 
 export const slideText: SlideType[] = [
   {
+    meta: {
+      hasVignette: true,
+    },
     narration: {
       en: "In the early hours of the morning, the baker Mariela rises to begin her work.",
     },

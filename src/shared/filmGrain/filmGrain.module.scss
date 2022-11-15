@@ -28,19 +28,6 @@
   }
 
   &__vignette {
-    // width: 80vw;
-    // height: 95vh;
-    // top: 2.5%;
-    // left: 10%;
-    // box-shadow: inset 0 0px 100px 30px rgba(0, 0, 0, 1);
-    // overflow: hidden;
-    // background-size: cover;
-    // background-position: center;
-    // position: absolute;
-    // z-index: 999;
-    // pointer-events: none;
-    // cursor: none;
-
     width: 80vw;
     height: 95vh;
     top: 2.5%;
@@ -86,34 +73,34 @@
 @keyframes scratches {
   0%,
   100% {
-    @include get-background(random(10));
+    @include get-background(1);
   }
   10% {
-    @include get-background(random(10));
+    @include get-background(2);
   }
   20% {
-    @include get-background(random(10));
+    @include get-background(3);
   }
   30% {
-    @include get-background(random(10));
+    @include get-background(4);
   }
   40% {
-    @include get-background(random(10));
+    @include get-background(5);
   }
   50% {
-    @include get-background(random(10));
+    @include get-background(6);
   }
   60% {
-    @include get-background(random(10));
+    @include get-background(7);
   }
   70% {
-    @include get-background(random(10));
+    @include get-background(8);
   }
   80% {
-    @include get-background(random(10));
+    @include get-background(9);
   }
   90% {
-    @include get-background(random(10));
+    @include get-background(10);
   }
 }
 

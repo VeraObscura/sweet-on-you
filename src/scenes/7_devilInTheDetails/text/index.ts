@@ -47,10 +47,4 @@ export const slidesA: SlideType[] = [
   {
     stepName: "bakeryStoreFront",
   },
-  {
-    stepName: "bakeryStoreFront",
-  },
-  {
-    stepName: "bakeryStoreFront",
-  },
 ];

@@ -38,7 +38,7 @@ const DevilInTheDetails = ({ slideIdx = null }: SceneType) => {
         return (
           <InterTitle hasBackground={false}>
             <SceneBackground
-              link={null}
+              link={checkSlidesOver() ? routes.END_CREDITS : null}
               onClick={handleNextSlide}
               imageSrc={bakeryStoreFront}
             />
@@ -54,7 +54,7 @@ const DevilInTheDetails = ({ slideIdx = null }: SceneType) => {
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && (
               <ArrowLink
-                link={checkSlidesOver() ? routes.HOME : null}
+                link={checkSlidesOver() ? routes.END_CREDITS : null}
                 onClick={handleNextSlide}
               />
             )}

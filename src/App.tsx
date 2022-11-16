@@ -17,6 +17,7 @@ import DreamALittleDream from "@/scenes/4_dreamALittleDream";
 import CastleInTheAir from "@/scenes/5_castleIntheAir";
 import ShowMustGoOn from "@/scenes/6_showMustGoOn";
 import DevilInTheDetails from "@/scenes/7_devilInTheDetails";
+import EndCredits from "@/scenes/8_endCredits";
 
 import "./App.scss";
 
@@ -82,6 +83,7 @@ function App() {
             path={routes.DEVIL_IN_THE_DETAILS}
             element={<DevilInTheDetails />}
           />
+          <Route path={routes.END_CREDITS} element={<EndCredits />} />
         </Routes>
       </main>
     </div>

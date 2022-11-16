@@ -9,6 +9,7 @@ const routes = {
   CASTLE_IN_THE_AIR: "/castle-in-the-air",
   THE_SHOW_MUST_GO_ON: "/the-show-must-go-on",
   DEVIL_IN_THE_DETAILS: "/the-final-flourish",
+  END_CREDITS: "/end-credits",
 };
 
 export default routes;

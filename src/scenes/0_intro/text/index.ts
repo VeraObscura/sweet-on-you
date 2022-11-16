@@ -11,7 +11,12 @@ export const slideText: SlideType[] = [
   },
   {
     narration: {
-      en: "She enters the kitchen of her small apartment, plays the mayfair doctor's cordials on her grandmother's record player...",
+      en: "She enters the kitchen of her small apartment...",
+    },
+  },
+  {
+    narration: {
+      en: "...plays the mayfair doctor's cordials on her grandmother's record player...",
     },
   },
   {
@@ -29,7 +34,15 @@ export const slideText: SlideType[] = [
       en: "Mariela",
     },
     dialogue: {
-      en: "It must be a marvelous confection, familiar enough to comfort, and yet imaginative enough to surprise.",
+      en: "It must be a marvelous confection, familiar enough to comfort...",
+    },
+  },
+  {
+    title: {
+      en: "Mariela",
+    },
+    dialogue: {
+      en: "...and yet imaginative enough to surprise.",
     },
   },
   {

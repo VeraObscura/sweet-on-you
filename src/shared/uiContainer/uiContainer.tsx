@@ -1,23 +1,17 @@
-import FilmGrain from "@/shared/filmGrain";
 import styles from "./uiContainer.module.scss";
-import { Link } from "react-router-dom";
 
 interface UIContainerProps {
-  link: string | null;
   onClick?: () => void;
+  isClosed?: boolean;
 }
 
-export const UIContainer = ({ link, onClick }: UIContainerProps) => {
+export const UIContainer = ({
+  onClick,
+  isClosed = false,
+}: UIContainerProps) => {
   return (
     <div className={styles.uiContainer}>
-      <FilmGrain />
-      {link ? (
-        <Link to={link}>
-          <h1 className={styles.uiContainer__button} onClick={onClick}>
-            ➜
-          </h1>
-        </Link>
-      ) : (
+      {!isClosed && (
         <h1 className={styles.uiContainer__button} onClick={onClick}>
           ➜
         </h1>

@@ -4,11 +4,13 @@ import styles from "./filmGrain.module.scss";
 interface FilmGrainProps {
   hasAnimatedVignette?: boolean;
   customVignette?: React.ReactNode;
+  isClosed?: boolean;
 }
 
 const FilmGrain = ({
   customVignette = null,
   hasAnimatedVignette = false,
+  isClosed = false,
 }: FilmGrainProps) => {
   useEffect(() => {
     const script = document.createElement("script");
@@ -28,11 +30,11 @@ const FilmGrain = ({
         customVignette
       ) : (
         <div
-          className={
+          className={`${
             hasAnimatedVignette
               ? styles.filmGrain__animatedVignette
               : styles.filmGrain__vignette
-          }
+          }`}
         />
       )}
       <div className={styles.filmGrain__scratches}></div>

@@ -11,14 +11,12 @@ interface ChoiceTextConatinerProps {
 
 interface ChoiceTextProps {
   text: string | undefined;
-  link: string | null;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 interface ArrowLinkProps {
-  link: string | null;
   backButton?: boolean;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 interface TitleTextProps {
@@ -37,6 +35,8 @@ interface InterTitleProps {
   hasAnimatedVignette?: boolean;
   customVignette?: React.ReactNode;
   hasBackground?: boolean;
+  isDerailed?: boolean;
+  isClosed?: boolean;
 }
 
 export const ChoiceTextContainer = ({ children }: ChoiceTextConatinerProps) => {
@@ -45,23 +45,11 @@ export const ChoiceTextContainer = ({ children }: ChoiceTextConatinerProps) => {
   );
 };
 
-export const ChoiceText = ({ text, link, onClick }: ChoiceTextProps) => {
+export const ChoiceText = ({ text, onClick }: ChoiceTextProps) => {
   return (
-    <Fragment>
-      {link ? (
-        <Link
-          className={styles.interTitle__choiceText}
-          onClick={onClick}
-          to={link}
-        >
-          <h3 style={{ margin: "0" }}>{text && text}</h3>
-        </Link>
-      ) : (
-        <h3 className={styles.interTitle__choiceText} onClick={onClick}>
-          {text && text}
-        </h3>
-      )}
-    </Fragment>
+    <h3 className={styles.interTitle__choiceText} onClick={onClick}>
+      {text && text}
+    </h3>
   );
 };
 
@@ -93,37 +81,18 @@ export const NarrationText = ({
   );
 };
 
-export const ArrowLink = ({
-  link,
-  backButton = false,
-  onClick,
-}: ArrowLinkProps) => {
+export const ArrowLink = ({ backButton = false, onClick }: ArrowLinkProps) => {
   return (
-    <Fragment>
-      {link ? (
-        <Link
-          className={
-            backButton
-              ? `${styles.interTitle__arrowLink} ${styles.interTitle__arrowLinkBack}`
-              : `${styles.interTitle__arrowLink}`
-          }
-          to={link}
-        >
-          ➜
-        </Link>
-      ) : (
-        <div
-          className={
-            backButton
-              ? `${styles.interTitle__arrowLink} ${styles.interTitle__arrowLinkBack}`
-              : `${styles.interTitle__arrowLink}`
-          }
-          onClick={onClick}
-        >
-          ➜
-        </div>
-      )}
-    </Fragment>
+    <div
+      className={
+        backButton
+          ? `${styles.interTitle__arrowLink} ${styles.interTitle__arrowLinkBack}`
+          : `${styles.interTitle__arrowLink}`
+      }
+      onClick={onClick}
+    >
+      ➜
+    </div>
   );
 };
 
@@ -132,19 +101,40 @@ export const InterTitle = ({
   customVignette = null,
   hasAnimatedVignette = false,
   hasBackground = true,
+  isDerailed = false,
+  isClosed = false,
 }: InterTitleProps) => {
   return (
-    <div className={styles.container}>
-      <FilmGrain
-        customVignette={customVignette}
-        hasAnimatedVignette={hasAnimatedVignette}
-      />
-      <div className={styles.interTitleContainer}>
-        <div className={`${styles.interTitle}`}>{children}</div>
-        {hasBackground && (
-          <img src={interTitleBackground} alt={"interTitle-background"} />
-        )}
+    <div
+      className={`${styles.container} ${
+        isDerailed ? styles.container__derailed : styles.container__standard
+      }`}
+    >
+      <div>
+        <FilmGrain
+          customVignette={customVignette}
+          hasAnimatedVignette={hasAnimatedVignette}
+          isClosed={isClosed}
+        />
+        <div className={styles.interTitleContainer}>
+          <div className={`${styles.interTitle}`}>{children}</div>
+          {hasBackground && (
+            <img src={interTitleBackground} alt={"interTitle-background"} />
+          )}
+        </div>
       </div>
+      {/* <div style={{ position: "absolute", left: "1400px" }}>
+        <FilmGrain
+          customVignette={customVignette}
+          hasAnimatedVignette={hasAnimatedVignette}
+        />
+        <div className={styles.interTitleContainer}>
+          <div className={`${styles.interTitle}`}>{children}</div>
+          {hasBackground && (
+            <img src={interTitleBackground} alt={"interTitle-background"} />
+          )}
+        </div>
+      </div> */}
     </div>
   );
 };

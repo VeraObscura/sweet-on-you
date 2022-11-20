@@ -2,6 +2,9 @@ import { SlideType } from "@/types/slideTypes";
 
 export const slideText: SlideType[] = [
   {
+    meta: {
+      hasVignette: true,
+    },
     chapter: {
       en: "The big audition",
     },

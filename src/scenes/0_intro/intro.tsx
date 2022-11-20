@@ -1,20 +1,24 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slideText, pathA, pathB, pathC } from "./text";
 import routes from "@/routes";
 
+import { InterTitle, ArrowLink } from "@/components/interTitle";
 import CrumbCoatScene from "./components/crumbCoatScene";
 import CakeScene from "./components/cakeScene";
-
-import { InterTitle, ArrowLink } from "@/components/interTitle";
+import AnimatedVignette from "@/shared/animatedVignette";
 import getSlideContent from "@/helpers/getSlideContent";
 
 const Intro = ({ slideIdx = null }: SceneType) => {
+  const navigate = useNavigate();
+
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
   const [slides, setSlides] = useState(slideText);
   const [choiceIndex, setChoiceIndex] = useState<number | null>(null);
+  const [isClosed, setIsClosed] = useState(false);
   const language = useAppSelector((state) => state.options.language);
 
   const checkSlidesOver = useCallback(() => {
@@ -27,6 +31,11 @@ const Intro = ({ slideIdx = null }: SceneType) => {
   const handleNextSlide = useCallback(() => {
     if (!checkSlidesOver()) {
       setSlideIndex(slideIndex + 1);
+    } else {
+      setIsClosed(true);
+      setTimeout(() => {
+        navigate(routes.BAKERY_AUDITION);
+      }, 2000);
     }
   }, [checkSlidesOver, slideIndex]);
 
@@ -72,18 +81,20 @@ const Intro = ({ slideIdx = null }: SceneType) => {
       case "cakeScene":
         return (
           <InterTitle hasBackground={false}>
-            <CakeScene link={routes.BAKERY_AUDITION} />
+            {isClosed && <AnimatedVignette isClosed={true} />}
+            <CakeScene onClick={handleNextSlide} isClosed={isClosed} />
           </InterTitle>
         );
       default:
         return (
-          <InterTitle>
+          <InterTitle
+            hasAnimatedVignette={
+              slides[slideIndex].meta?.hasVignette ? true : false
+            }
+          >
             {slideContent[slideIndex]}
-            {!slides[slideIndex].choices && (
-              <ArrowLink
-                link={checkSlidesOver() ? routes.BAKERY_AUDITION : null}
-                onClick={handleNextSlide}
-              />
+            {!slides[slideIndex].choices && !isClosed && (
+              <ArrowLink onClick={handleNextSlide} />
             )}
           </InterTitle>
         );

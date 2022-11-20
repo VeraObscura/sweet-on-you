@@ -1,5 +1,6 @@
 @mixin get-background($num) {
   opacity: 0.1;
+
   @if ($num == 1) {
     background-image: url("../../assets/images/grain/1.jpg");
   }

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slidesA } from "./text";
-import SceneBackground from "@/components/sceneBackground/sceneBackground";
 import AnimatedVignette from "@/shared/animatedVignette";
 
 import routes from "@/routes";
@@ -12,9 +11,7 @@ import routes from "@/routes";
 import { InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
 
-import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
-
-const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
+const EndCredits = ({ slideIdx = null }: SceneType) => {
   const navigate = useNavigate();
 
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
@@ -35,43 +32,30 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
     } else {
       setIsClosed(true);
       setTimeout(() => {
-        navigate(routes.DEVIL_IN_THE_DETAILS);
+        navigate(routes.HOME);
       }, 2000);
     }
   }, [checkSlidesOver, slideIndex]);
 
   const slideContent = getSlideContent({ slides, language });
 
-  const renderSlide = (stepName: string | undefined) => {
-    switch (stepName) {
-      case "bakeryStoreFront":
-        return (
-          <InterTitle hasBackground={false}>
-            <SceneBackground
-              link={null}
-              onClick={handleNextSlide}
-              imageSrc={bakeryStoreFront}
-            />
-          </InterTitle>
-        );
-      default:
-        return (
-          <InterTitle
-            hasAnimatedVignette={
-              slides[slideIndex].meta?.hasVignette ? true : false
-            }
-          >
-            {isClosed && <AnimatedVignette isClosed={true} />}
-            {slideContent[slideIndex]}
-            {!slides[slideIndex].choices && !isClosed && (
-              <ArrowLink onClick={handleNextSlide} />
-            )}
-          </InterTitle>
-        );
-    }
+  const renderSlide = () => {
+    return (
+      <InterTitle
+        hasAnimatedVignette={
+          slides[slideIndex].meta?.hasVignette ? true : false
+        }
+      >
+        {isClosed && <AnimatedVignette isClosed={true} />}
+        {slideContent[slideIndex]}
+        {!slides[slideIndex].choices && !isClosed && (
+          <ArrowLink onClick={handleNextSlide} />
+        )}
+      </InterTitle>
+    );
   };
 
-  return <Fragment>{renderSlide(slides[slideIndex].stepName)}</Fragment>;
+  return <Fragment>{renderSlide()}</Fragment>;
 };
 
-export default ShowMustGoOn;
+export default EndCredits;

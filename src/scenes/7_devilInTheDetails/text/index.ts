@@ -2,6 +2,9 @@ import { SlideType } from "@/types/slideTypes";
 
 export const slidesA: SlideType[] = [
   {
+    meta: {
+      hasVignette: true,
+    },
     chapter: {
       en: "Devil in the details",
     },
@@ -40,12 +43,6 @@ export const slidesA: SlideType[] = [
     narration: {
       en: "...a message from Julia arrived.",
     },
-  },
-  {
-    stepName: "bakeryStoreFront",
-  },
-  {
-    stepName: "bakeryStoreFront",
   },
   {
     stepName: "bakeryStoreFront",

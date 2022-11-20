@@ -1,9 +1,11 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slidesA, slidesB, pathA, pathB } from "./text";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
+import AnimatedVignette from "@/shared/animatedVignette";
 
 import routes from "@/routes";
 
@@ -14,21 +16,32 @@ import bakeryInterior from "@/assets/images/bakeryInterior.jpg";
 import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
 
 const FirstBigOrder = ({ slideIdx = null }: SceneType) => {
+  const navigate = useNavigate();
+
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
   const [slides, setSlides] = useState(slidesA);
   const [choiceIndex, setChoiceIndex] = useState<number | null>(null);
+  const [isClosed, setIsClosed] = useState(false);
   const language = useAppSelector((state: any) => state.options.language);
 
   const checkSlidesOver = useCallback(() => {
     if (slideIndex >= slides.length - 1) {
       return true;
+    } else {
+      navigate(routes.FIRST_BIG_ORDER);
     }
+
     return false;
   }, [slides, slideIndex]);
 
   const handleNextSlide = useCallback(() => {
     if (!checkSlidesOver()) {
       setSlideIndex(slideIndex + 1);
+    } else {
+      setIsClosed(true);
+      setTimeout(() => {
+        navigate(routes.CUSTOMER_IS_ALWAYS_RIGHT);
+      }, 2000);
     }
   }, [checkSlidesOver, slideIndex]);
 
@@ -95,15 +108,15 @@ const FirstBigOrder = ({ slideIdx = null }: SceneType) => {
         );
       default:
         return (
-          <InterTitle>
+          <InterTitle
+            hasAnimatedVignette={
+              slides[slideIndex].meta?.hasVignette ? true : false
+            }
+          >
+            {isClosed && <AnimatedVignette isClosed={true} />}
             {slideContent[slideIndex]}
-            {!slides[slideIndex].choices && (
-              <ArrowLink
-                link={
-                  checkSlidesOver() ? routes.CUSTOMER_IS_ALWAYS_RIGHT : null
-                }
-                onClick={handleNextSlide}
-              />
+            {!slides[slideIndex].choices && !isClosed && (
+              <ArrowLink onClick={handleNextSlide} />
             )}
           </InterTitle>
         );

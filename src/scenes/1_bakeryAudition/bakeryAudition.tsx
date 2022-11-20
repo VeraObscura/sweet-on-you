@@ -1,10 +1,12 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { useAppSelector } from "@/redux/hooks";
+import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
 import { slideText, pathA } from "./text";
 import { InterTitle, ArrowLink } from "@/components/interTitle";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
+import AnimatedVignette from "@/shared/animatedVignette";
 import getSlideContent from "@/helpers/getSlideContent";
 
 import bakeryInterior from "@/assets/images/bakeryInterior.jpg";
@@ -14,9 +16,12 @@ import halfEatenCake from "@/assets/images/halfEatenCake.jpg";
 import routes from "@/routes";
 
 const BakeryAudition = ({ slideIdx = null }: SceneType) => {
+  const navigate = useNavigate();
+
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
   const [slides, setSlides] = useState(slideText);
   const [choiceIndex, setChoiceIndex] = useState<number | null>(null);
+  const [isClosed, setIsClosed] = useState(false);
   const language = useAppSelector((state: any) => state.options.language);
 
   const checkSlidesOver = useCallback(() => {
@@ -29,6 +34,11 @@ const BakeryAudition = ({ slideIdx = null }: SceneType) => {
   const handleNextSlide = useCallback(() => {
     if (!checkSlidesOver()) {
       setSlideIndex(slideIndex + 1);
+    } else {
+      setIsClosed(true);
+      setTimeout(() => {
+        navigate(routes.FIRST_BIG_ORDER);
+      }, 2000);
     }
   }, [checkSlidesOver, slideIndex]);
 
@@ -89,12 +99,10 @@ const BakeryAudition = ({ slideIdx = null }: SceneType) => {
               slides[slideIndex].meta?.hasVignette ? true : false
             }
           >
+            {isClosed && <AnimatedVignette isClosed={true} />}
             {slideContent[slideIndex]}
-            {!slides[slideIndex].choices && (
-              <ArrowLink
-                link={checkSlidesOver() ? routes.FIRST_BIG_ORDER : null}
-                onClick={handleNextSlide}
-              />
+            {!slides[slideIndex].choices && !isClosed && (
+              <ArrowLink onClick={handleNextSlide} />
             )}
           </InterTitle>
         );

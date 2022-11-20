@@ -1,9 +1,11 @@
 import { Fragment, useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slidesA } from "./text";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
+import AnimatedVignette from "@/shared/animatedVignette";
 
 import routes from "@/routes";
 
@@ -13,7 +15,10 @@ import getSlideContent from "@/helpers/getSlideContent";
 import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
 
 const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
+  const navigate = useNavigate();
+
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
+  const [isClosed, setIsClosed] = useState(false);
   const slides = slidesA;
   const language = useAppSelector((state: any) => state.options.language);
 
@@ -21,12 +26,18 @@ const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
     if (slideIndex >= slides.length - 1) {
       return true;
     }
+
     return false;
   }, [slides, slideIndex]);
 
   const handleNextSlide = useCallback(() => {
     if (!checkSlidesOver()) {
       setSlideIndex(slideIndex + 1);
+    } else {
+      setIsClosed(true);
+      setTimeout(() => {
+        navigate(routes.DREAM_A_LITTLE_DREAM);
+      }, 2000);
     }
   }, [checkSlidesOver, slideIndex]);
 
@@ -51,12 +62,10 @@ const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
               slides[slideIndex].meta?.hasVignette ? true : false
             }
           >
+            {isClosed && <AnimatedVignette isClosed={true} />}
             {slideContent[slideIndex]}
-            {!slides[slideIndex].choices && (
-              <ArrowLink
-                link={checkSlidesOver() ? routes.DREAM_A_LITTLE_DREAM : null}
-                onClick={handleNextSlide}
-              />
+            {!slides[slideIndex].choices && !isClosed && (
+              <ArrowLink onClick={handleNextSlide} />
             )}
           </InterTitle>
         );

@@ -112,14 +112,14 @@ const Frosting = ({ rotation }: FrostingProps) => {
 };
 
 interface CakeSceneProps {
-  link: string | null;
-  onClick?: () => void;
+  onClick: () => void;
+  isClosed?: boolean;
 }
 
-export const CakeScene = ({ link, onClick }: CakeSceneProps) => {
+export const CakeScene = ({ onClick, isClosed = false }: CakeSceneProps) => {
   return (
     <div className={styles.cakeScene}>
-      <UIContainer link={link} onClick={onClick} />
+      <UIContainer onClick={onClick} isClosed={isClosed} />
 
       <Canvas shadows camera={{ position: [2, 2, 2], fov: 40 }}>
         <Suspense fallback={null}>

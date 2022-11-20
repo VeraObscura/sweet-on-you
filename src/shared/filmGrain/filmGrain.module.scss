@@ -51,7 +51,7 @@
     border: solid 400px rgba(0, 0, 0, 0.5);
     top: 50%;
     left: 50%;
-    animation: animate-vignette 1s;
+    animation: animate-vignette ease-out 1s;
     filter: blur(20px);
     pointer-events: none;
     cursor: none;

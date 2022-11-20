@@ -1,11 +1,23 @@
 .container {
-  width: 100vw;
-  height: 100vh;
   top: 0;
-  left: 0;
   position: absolute;
-  animation: move-element 0.5s steps(2, end) infinite;
-  clip-path: inset(3% 13% 3% 13% round 10%);
+
+  &__derailed {
+    width: 200vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    left: -00px;
+    animation: derail-element 2s steps(4, end);
+  }
+
+  &__standard {
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    animation: move-element 0.5s steps(2, end) infinite;
+    clip-path: inset(3% 13% 3% 13% round 10%);
+  }
 
   .interTitleContainer {
     @include film-matt;
@@ -137,5 +149,21 @@
   75% {
     top: 1px;
     left: -1px;
+  }
+}
+
+@keyframes derail-element {
+  0%,
+  100% {
+    left: -200px;
+  }
+  25% {
+    left: 300px;
+  }
+  50% {
+    left: -300px;
+  }
+  75% {
+    left: -200px;
   }
 }

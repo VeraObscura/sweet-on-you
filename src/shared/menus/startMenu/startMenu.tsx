@@ -25,7 +25,7 @@ const StartMenu = ({ onSelectOptions }: StartMenuProps) => {
   const handleClickStartGame = () => {
     setIsClosed(true);
     setTimeout(() => {
-      navigate(routes.INTRO);
+      navigate(routes.THE_SHOW_MUST_GO_ON);
     }, 2000);
   };
 

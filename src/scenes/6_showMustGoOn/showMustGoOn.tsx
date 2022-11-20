@@ -5,7 +5,7 @@ import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slidesA } from "./text";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
-import AnimatedVignette from "@/shared/animatedVignette";
+import CelluliodFire from "@/components/celluloidFire/celluloidFire";
 
 import routes from "@/routes";
 
@@ -33,10 +33,12 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
     if (!checkSlidesOver()) {
       setSlideIndex(slideIndex + 1);
     } else {
-      setIsClosed(true);
       setTimeout(() => {
-        navigate(routes.DEVIL_IN_THE_DETAILS);
-      }, 2000);
+        setIsClosed(true);
+      }, 1000);
+      // setTimeout(() => {
+      //   navigate(routes.DEVIL_IN_THE_DETAILS);
+      // }, 5000);
     }
   }, [checkSlidesOver, slideIndex]);
 
@@ -56,17 +58,21 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
         );
       default:
         return (
-          <InterTitle
-            hasAnimatedVignette={
-              slides[slideIndex].meta?.hasVignette ? true : false
-            }
-          >
-            {isClosed && <AnimatedVignette isClosed={true} />}
-            {slideContent[slideIndex]}
-            {!slides[slideIndex].choices && !isClosed && (
-              <ArrowLink onClick={handleNextSlide} />
-            )}
-          </InterTitle>
+          <div>
+            {/* {isClosed && <CelluliodFire />} */}
+            <CelluliodFire />
+            <InterTitle
+              hasAnimatedVignette={
+                slides[slideIndex].meta?.hasVignette ? true : false
+              }
+              isDerailed={true}
+            >
+              {slideContent[slideIndex]}
+              {!slides[slideIndex].choices && !isClosed && (
+                <ArrowLink onClick={handleNextSlide} />
+              )}
+            </InterTitle>
+          </div>
         );
     }
   };

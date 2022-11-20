@@ -105,36 +105,36 @@ export const InterTitle = ({
   isClosed = false,
 }: InterTitleProps) => {
   return (
-    <div
-      className={`${styles.container} ${
-        isDerailed ? styles.container__derailed : styles.container__standard
-      }`}
-    >
-      <div>
-        <FilmGrain
-          customVignette={customVignette}
-          hasAnimatedVignette={hasAnimatedVignette}
-          isClosed={isClosed}
-        />
-        <div className={styles.interTitleContainer}>
-          <div className={`${styles.interTitle}`}>{children}</div>
-          {hasBackground && (
-            <img src={interTitleBackground} alt={"interTitle-background"} />
-          )}
+    <div className={styles.clipMask}>
+      <FilmGrain
+        customVignette={customVignette}
+        hasAnimatedVignette={hasAnimatedVignette}
+        isClosed={isClosed}
+      />
+      <div
+        className={`${styles.container} ${
+          isDerailed ? styles.container__derailed : styles.container__standard
+        }`}
+      >
+        <div>
+          <div className={styles.interTitleContainer}>
+            <div className={`${styles.interTitle}`}>{children}</div>
+            {hasBackground && (
+              <img src={interTitleBackground} alt={"interTitle-background"} />
+            )}
+          </div>
         </div>
+        {isDerailed && (
+          <div style={{ position: "absolute", left: "51%" }}>
+            <div className={styles.interTitleContainer}>
+              <div className={`${styles.interTitle}`}>{children}</div>
+              {hasBackground && (
+                <img src={interTitleBackground} alt={"interTitle-background"} />
+              )}
+            </div>
+          </div>
+        )}
       </div>
-      {/* <div style={{ position: "absolute", left: "1400px" }}>
-        <FilmGrain
-          customVignette={customVignette}
-          hasAnimatedVignette={hasAnimatedVignette}
-        />
-        <div className={styles.interTitleContainer}>
-          <div className={`${styles.interTitle}`}>{children}</div>
-          {hasBackground && (
-            <img src={interTitleBackground} alt={"interTitle-background"} />
-          )}
-        </div>
-      </div> */}
     </div>
   );
 };

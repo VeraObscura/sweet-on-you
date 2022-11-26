@@ -32,7 +32,7 @@ const Flame = ({ top, left, version }: FlameProps) => {
   );
 };
 
-const CelluliodFire = () => {
+const CelluloidFire = () => {
   const [showFlame1, setShowFlame1] = useState(false);
   const [showFlame2, setShowFlame2] = useState(false);
 
@@ -53,4 +53,4 @@ const CelluliodFire = () => {
   );
 };
 
-export default CelluliodFire;
+export default CelluloidFire;

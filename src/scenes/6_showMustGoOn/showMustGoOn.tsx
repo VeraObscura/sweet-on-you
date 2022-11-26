@@ -5,7 +5,7 @@ import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slidesA } from "./text";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
-import CelluliodFire from "@/components/celluloidFire/celluloidFire";
+import CelluloidFire from "@/components/celluloidFire/celluloidFire";
 
 import routes from "@/routes";
 
@@ -36,9 +36,9 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
       setTimeout(() => {
         setIsClosed(true);
       }, 1000);
-      // setTimeout(() => {
-      //   navigate(routes.DEVIL_IN_THE_DETAILS);
-      // }, 5000);
+      setTimeout(() => {
+        navigate(routes.DEVIL_IN_THE_DETAILS);
+      }, 5000);
     }
   }, [checkSlidesOver, slideIndex]);
 
@@ -59,13 +59,12 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
       default:
         return (
           <div>
-            {/* {isClosed && <CelluliodFire />} */}
-            <CelluliodFire />
+            {isClosed && <CelluloidFire />}
             <InterTitle
               hasAnimatedVignette={
                 slides[slideIndex].meta?.hasVignette ? true : false
               }
-              isDerailed={true}
+              isDerailed={isClosed}
             >
               {slideContent[slideIndex]}
               {!slides[slideIndex].choices && !isClosed && (

@@ -9,7 +9,7 @@ import AnimatedVignette from "@/shared/animatedVignette";
 
 import routes from "@/routes";
 
-import { InterTitle, ArrowLink } from "@/components/interTitle";
+import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
 
 import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
@@ -72,7 +72,13 @@ const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
     }
   };
 
-  return <Fragment>{renderSlide(slides[slideIndex].stepName)}</Fragment>;
+  return (
+    <ClipMask
+      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
+    >
+      {renderSlide(slides[slideIndex].stepName)}
+    </ClipMask>
+  );
 };
 
 export default CustomerIsAlwaysRight;

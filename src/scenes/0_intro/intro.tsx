@@ -6,7 +6,7 @@ import { useAppSelector } from "@/redux/hooks";
 import { slideText, pathA, pathB, pathC } from "./text";
 import routes from "@/routes";
 
-import { InterTitle, ArrowLink } from "@/components/interTitle";
+import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import CrumbCoatScene from "./components/crumbCoatScene";
 import CakeScene from "./components/cakeScene";
 import AnimatedVignette from "@/shared/animatedVignette";
@@ -87,11 +87,7 @@ const Intro = ({ slideIdx = null }: SceneType) => {
         );
       default:
         return (
-          <InterTitle
-            hasAnimatedVignette={
-              slides[slideIndex].meta?.hasVignette ? true : false
-            }
-          >
+          <InterTitle>
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && !isClosed && (
               <ArrowLink onClick={handleNextSlide} />
@@ -101,7 +97,13 @@ const Intro = ({ slideIdx = null }: SceneType) => {
     }
   };
 
-  return <Fragment>{renderSlide(slides[slideIndex].stepName)}</Fragment>;
+  return (
+    <ClipMask
+      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
+    >
+      {renderSlide(slides[slideIndex].stepName)}
+    </ClipMask>
+  );
 };
 
 export default Intro;

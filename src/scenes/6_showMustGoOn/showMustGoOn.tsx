@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
@@ -9,7 +9,7 @@ import CelluloidFire from "@/components/celluloidFire/celluloidFire";
 
 import routes from "@/routes";
 
-import { InterTitle, ArrowLink } from "@/components/interTitle";
+import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
 
 import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
@@ -18,6 +18,7 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
   const navigate = useNavigate();
 
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
+  const [isFadingIn, setIsFadingIn] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
   const language = useAppSelector((state: any) => state.options.language);
   const slides = slidesA;
@@ -30,23 +31,26 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
   }, [slides, slideIndex]);
 
   const handleNextSlide = useCallback(() => {
+    setIsFadingIn(true);
+    setTimeout(() => {
+      setIsFadingIn(false);
+    }, 1000);
+
     if (!checkSlidesOver()) {
       setSlideIndex(slideIndex + 1);
     } else {
-      setTimeout(() => {
-        setIsClosed(true);
-      }, 1000);
+      setIsClosed(true);
       setTimeout(() => {
         navigate(routes.DEVIL_IN_THE_DETAILS);
-      }, 5000);
+      }, 15000);
     }
   }, [checkSlidesOver, slideIndex]);
 
   const slideContent = getSlideContent({ slides, language });
 
-  const renderSlide = (stepName: string | undefined) => {
-    switch (stepName) {
-      case "bakeryStoreFront":
+  const buildSlideArray = () => {
+    let slideArray = slides.map((slide, idx) => {
+      if (slide.stepName === "bakeryStoreFront") {
         return (
           <InterTitle hasBackground={false}>
             <SceneBackground
@@ -56,27 +60,55 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
             />
           </InterTitle>
         );
-      default:
+      } else {
         return (
-          <div>
-            {isClosed && <CelluloidFire />}
-            <InterTitle
-              hasAnimatedVignette={
-                slides[slideIndex].meta?.hasVignette ? true : false
-              }
-              isDerailed={isClosed}
-            >
-              {slideContent[slideIndex]}
-              {!slides[slideIndex].choices && !isClosed && (
-                <ArrowLink onClick={handleNextSlide} />
-              )}
-            </InterTitle>
-          </div>
+          <InterTitle>
+            {slideContent[idx]}
+            {!slides[idx].choices && !isClosed && (
+              <ArrowLink onClick={handleNextSlide} />
+            )}
+          </InterTitle>
         );
-    }
+      }
+    });
+    return slideArray;
   };
 
-  return <Fragment>{renderSlide(slides[slideIndex].stepName)}</Fragment>;
+  const slideArray = buildSlideArray();
+
+  // const renderSlide = (stepName: string | undefined) => {
+  //   switch (stepName) {
+  //     case "bakeryStoreFront":
+  //       return (
+  //         <InterTitle hasBackground={false}>
+  //           <SceneBackground
+  //             link={null}
+  //             onClick={handleNextSlide}
+  //             imageSrc={bakeryStoreFront}
+  //           />
+  //         </InterTitle>
+  //       );
+  //     default:
+  //       return (
+  //         <InterTitle>
+  //           {slideContent[slideIndex]}
+  //           {!slides[slideIndex].choices && !isClosed && (
+  //             <ArrowLink onClick={handleNextSlide} />
+  //           )}
+  //         </InterTitle>
+  //       );
+  //   }
+  // };
+
+  return (
+    <ClipMask
+      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
+    >
+      {isClosed && <CelluloidFire />}
+      {/* {renderSlide(slides[slideIndex].stepName)} */}
+      {slideArray[slideIndex]}
+    </ClipMask>
+  );
 };
 
 export default ShowMustGoOn;

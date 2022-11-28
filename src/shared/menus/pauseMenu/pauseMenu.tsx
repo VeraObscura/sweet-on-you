@@ -1,4 +1,5 @@
 import {
+  ClipMask,
   InterTitle,
   ChoiceTextContainer,
   ChoiceText,
@@ -16,14 +17,16 @@ interface PauseMenuProps {
 const PauseMenu = ({ onSelectResume, onSelectOptions }: PauseMenuProps) => {
   return (
     <div className={styles.pauseMenu}>
-      <InterTitle>
-        <TitleText text="Pause Game" />
-        <ChoiceTextContainer>
-          <ChoiceText text="Resume" link={null} onClick={onSelectResume} />
-          <ChoiceText text="Options" link={null} onClick={onSelectOptions} />
-          <ChoiceText text="Quit" link={null} onClick={quitApplication} />
-        </ChoiceTextContainer>
-      </InterTitle>
+      <ClipMask>
+        <InterTitle>
+          <TitleText text="Pause Game" />
+          <ChoiceTextContainer>
+            <ChoiceText text="Resume" onClick={onSelectResume} />
+            <ChoiceText text="Options" onClick={onSelectOptions} />
+            <ChoiceText text="Quit" onClick={quitApplication} />
+          </ChoiceTextContainer>
+        </InterTitle>
+      </ClipMask>
     </div>
   );
 };

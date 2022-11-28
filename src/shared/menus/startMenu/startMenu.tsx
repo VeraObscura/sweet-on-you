@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
+  ClipMask,
   InterTitle,
   TitleText,
   ChoiceTextContainer,
@@ -37,16 +38,18 @@ const StartMenu = ({ onSelectOptions }: StartMenuProps) => {
   };
 
   return (
-    <InterTitle hasAnimatedVignette={true}>
-      {isClosed && <AnimatedVignette isClosed={true} />}
-      <TitleText text="Sweet on You" />
-      <ChoiceTextContainer>
-        <ChoiceText text="Start Game" onClick={handleClickStartGame} />
-        <ChoiceText text="Options" onClick={onSelectOptions} />
-        <ChoiceText text="About" onClick={handleClickAbout} />
-        <ChoiceText text="Quit" onClick={quitApplication} />
-      </ChoiceTextContainer>
-    </InterTitle>
+    <ClipMask hasAnimatedVignette={true}>
+      <InterTitle>
+        {isClosed && <AnimatedVignette isClosed={true} />}
+        <TitleText text="Sweet on You" />
+        <ChoiceTextContainer>
+          <ChoiceText text="Start Game" onClick={handleClickStartGame} />
+          <ChoiceText text="Options" onClick={onSelectOptions} />
+          <ChoiceText text="About" onClick={handleClickAbout} />
+          <ChoiceText text="Quit" onClick={quitApplication} />
+        </ChoiceTextContainer>
+      </InterTitle>
+    </ClipMask>
   );
 };
 

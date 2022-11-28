@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "redux": "^4.2.0",
-    "twgl.js": "^5.0.4"
+    "twgl.js": "^5.0.4",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@react-spring/three": "^9.5.5",

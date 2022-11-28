@@ -19,7 +19,7 @@ import ShowMustGoOn from "@/scenes/6_showMustGoOn";
 import DevilInTheDetails from "@/scenes/7_devilInTheDetails";
 import EndCredits from "@/scenes/8_endCredits";
 
-import "./App.scss";
+import "./app.scss";
 
 function App() {
   const [displayPauseMenu, setDisplayPauseMenu] = useState(false);

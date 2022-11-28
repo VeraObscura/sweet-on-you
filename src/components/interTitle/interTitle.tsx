@@ -1,9 +1,8 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import FilmGrain from "@/shared/filmGrain";
 
 import interTitleBackground from "@/assets/images/interTitle.jpg";
 import styles from "./interTitle.module.scss";
-import { Link } from "react-router-dom";
 
 interface ChoiceTextConatinerProps {
   children: React.ReactNode;
@@ -35,7 +34,6 @@ interface InterTitleProps {
   hasAnimatedVignette?: boolean;
   customVignette?: React.ReactNode;
   hasBackground?: boolean;
-  isDerailed?: boolean;
   isClosed?: boolean;
 }
 
@@ -55,7 +53,10 @@ export const ChoiceText = ({ text, onClick }: ChoiceTextProps) => {
 
 export const TitleText = ({ text }: TitleTextProps) => {
   return (
-    <div className={styles.interTitle__titleText}>
+    <div
+      key={text}
+      className={`${styles.interTitle__titleText} ${styles.interTitle__animatedFadeIn}`}
+    >
       <div className={styles.interTitle__titleText__text}>
         <h1>{text}</h1>
       </div>
@@ -64,7 +65,12 @@ export const TitleText = ({ text }: TitleTextProps) => {
 };
 
 export const CharacterDialogueText = ({ text }: BodyTextProps) => {
-  return <h2 className={styles.interTitle__bodyText}>{`"${text}"`}</h2>;
+  return (
+    <h2
+      key={text}
+      className={`${styles.interTitle__bodyText} ${styles.interTitle__animatedFadeIn}`}
+    >{`"${text}"`}</h2>
+  );
 };
 
 export const NarrationText = ({
@@ -74,9 +80,12 @@ export const NarrationText = ({
 }: BodyTextProps) => {
   return (
     <h2
+      key={text}
       className={`${styles.interTitle__bodyText} ${
         italic && styles.interTitle__italicizedText
-      } ${capitalize && styles.interTitle__capitalizedText}`}
+      } ${capitalize && styles.interTitle__capitalizedText} ${
+        styles.interTitle__animatedFadeIn
+      }`}
     >{`${text}`}</h2>
   );
 };
@@ -98,11 +107,31 @@ export const ArrowLink = ({ backButton = false, onClick }: ArrowLinkProps) => {
 
 export const InterTitle = ({
   children,
-  customVignette = null,
-  hasAnimatedVignette = false,
   hasBackground = true,
-  isDerailed = false,
-  isClosed = false,
+}: InterTitleProps) => {
+  useEffect(() => {
+    console.log("intertitle is mounted");
+  }, []);
+
+  return (
+    <div className={`${styles.container} ${styles.container__standard}`}>
+      <div>
+        <div className={styles.interTitleContainer}>
+          <div className={`${styles.interTitle}`}>{children}</div>
+          {hasBackground && (
+            <img src={interTitleBackground} alt={"interTitle-background"} />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const ClipMask = ({
+  children,
+  customVignette,
+  hasAnimatedVignette,
+  isClosed,
 }: InterTitleProps) => {
   return (
     <div className={styles.clipMask}>
@@ -111,30 +140,7 @@ export const InterTitle = ({
         hasAnimatedVignette={hasAnimatedVignette}
         isClosed={isClosed}
       />
-      <div
-        className={`${styles.container} ${
-          isDerailed ? styles.container__derailed : styles.container__standard
-        }`}
-      >
-        <div>
-          <div className={styles.interTitleContainer}>
-            <div className={`${styles.interTitle}`}>{children}</div>
-            {hasBackground && (
-              <img src={interTitleBackground} alt={"interTitle-background"} />
-            )}
-          </div>
-        </div>
-        {isDerailed && (
-          <div style={{ position: "absolute", left: "51%" }}>
-            <div className={styles.interTitleContainer}>
-              <div className={`${styles.interTitle}`}>{children}</div>
-              {hasBackground && (
-                <img src={interTitleBackground} alt={"interTitle-background"} />
-              )}
-            </div>
-          </div>
-        )}
-      </div>
+      {children}
     </div>
   );
 };

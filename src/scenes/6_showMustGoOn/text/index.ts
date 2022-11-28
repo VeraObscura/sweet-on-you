@@ -51,7 +51,7 @@ export const slidesA: SlideType[] = [
       en: "Julia",
     },
     dialogue: {
-      en: " I'm sorry, wish I could have gotten to you sooner...",
+      en: "I'm sorry, wish I could have gotten to you sooner...",
     },
   },
   {
@@ -59,7 +59,15 @@ export const slidesA: SlideType[] = [
       en: "Julia",
     },
     dialogue: {
-      en: "...but planning this wedding has been an absolute whirlwind, and I'm not often in this part of town.",
+      en: "...but planning this wedding has been an absolute whirlwind...",
+    },
+  },
+  {
+    title: {
+      en: "Julia",
+    },
+    dialogue: {
+      en: "...and I'm not often in this part of town.",
     },
   },
   {
@@ -183,7 +191,7 @@ export const slidesA: SlideType[] = [
       en: "Julia",
     },
     dialogue: {
-      en: "I did mean what I said in those letters. ",
+      en: "I did mean what I said in those letters.",
     },
   },
   {
@@ -191,7 +199,7 @@ export const slidesA: SlideType[] = [
       en: "Julia",
     },
     dialogue: {
-      en: " I think your work is amazing, and I wouldn't trust anyone else with this job.",
+      en: "I think your work is amazing, and I wouldn't trust anyone else with this job.",
     },
   },
   {

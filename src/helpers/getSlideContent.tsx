@@ -15,6 +15,7 @@ interface getSlideContentProps {
   language: "en" | "es";
   handleSelection?: (index: number) => void;
 }
+
 const getSlideContent = ({
   slides,
   language,
@@ -25,7 +26,6 @@ const getSlideContent = ({
       <ChoiceText
         key={index}
         text={choice[language]}
-        link={null}
         onClick={() => {
           handleSelection && handleSelection(index);
         }}
@@ -51,9 +51,11 @@ const getSlideContent = ({
         {slide.dialogue && (
           <CharacterDialogueText text={slide.dialogue[language]} />
         )}
-        <ChoiceTextContainer>
-          {slide.choices && choiceContent(slide.choices)}
-        </ChoiceTextContainer>
+        {slide.choices && (
+          <ChoiceTextContainer>
+            {choiceContent(slide.choices)}
+          </ChoiceTextContainer>
+        )}
       </Fragment>
     );
   });

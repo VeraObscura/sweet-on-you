@@ -39,13 +39,17 @@ interface InterTitleProps {
 
 export const ChoiceTextContainer = ({ children }: ChoiceTextConatinerProps) => {
   return (
-    <div className={styles.interTitle__choiceTextContainer}>{children}</div>
+    <div
+      className={`${styles.interTitle__choiceTextContainer} ${styles.interTitle__animatedFadeIn}`}
+    >
+      {children}
+    </div>
   );
 };
 
 export const ChoiceText = ({ text, onClick }: ChoiceTextProps) => {
   return (
-    <h3 className={styles.interTitle__choiceText} onClick={onClick}>
+    <h3 className={`${styles.interTitle__choiceText}`} onClick={onClick}>
       {text && text}
     </h3>
   );

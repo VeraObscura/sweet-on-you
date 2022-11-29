@@ -1,0 +1,24 @@
+.celluloidFire {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 900;
+  top: 10px;
+  left: 0;
+  opacity: 1;
+  animation: fade-in-film-burn 14s linear 0s 1 forwards;
+  pointer-events: none;
+
+  img {
+    width: 100%;
+  }
+}
+
+@keyframes fade-in-film-burn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

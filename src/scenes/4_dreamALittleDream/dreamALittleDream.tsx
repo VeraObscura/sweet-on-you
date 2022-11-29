@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
@@ -9,7 +9,7 @@ import AnimatedVignette from "@/shared/animatedVignette";
 
 import routes from "@/routes";
 
-import { InterTitle, ArrowLink } from "@/components/interTitle";
+import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
 
 import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
@@ -87,11 +87,7 @@ const DreamALittleDream = ({ slideIdx = null }: SceneType) => {
         );
       default:
         return (
-          <InterTitle
-            hasAnimatedVignette={
-              slides[slideIndex].meta?.hasVignette ? true : false
-            }
-          >
+          <InterTitle>
             {isClosed && <AnimatedVignette isClosed={true} />}
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && !isClosed && (
@@ -102,7 +98,13 @@ const DreamALittleDream = ({ slideIdx = null }: SceneType) => {
     }
   };
 
-  return <Fragment>{renderSlide(slides[slideIndex].stepName)}</Fragment>;
+  return (
+    <ClipMask
+      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
+    >
+      {renderSlide(slides[slideIndex].stepName)}
+    </ClipMask>
+  );
 };
 
 export default DreamALittleDream;

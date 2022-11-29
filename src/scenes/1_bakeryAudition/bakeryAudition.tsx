@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
 import { slideText, pathA } from "./text";
-import { InterTitle, ArrowLink } from "@/components/interTitle";
+import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
 import AnimatedVignette from "@/shared/animatedVignette";
 import getSlideContent from "@/helpers/getSlideContent";
@@ -94,11 +94,7 @@ const BakeryAudition = ({ slideIdx = null }: SceneType) => {
         );
       default:
         return (
-          <InterTitle
-            hasAnimatedVignette={
-              slides[slideIndex].meta?.hasVignette ? true : false
-            }
-          >
+          <InterTitle>
             {isClosed && <AnimatedVignette isClosed={true} />}
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && !isClosed && (
@@ -109,7 +105,13 @@ const BakeryAudition = ({ slideIdx = null }: SceneType) => {
     }
   };
 
-  return <Fragment>{renderSlide(slides[slideIndex].stepName)}</Fragment>;
+  return (
+    <ClipMask
+      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
+    >
+      {renderSlide(slides[slideIndex].stepName)}
+    </ClipMask>
+  );
 };
 
 export default BakeryAudition;

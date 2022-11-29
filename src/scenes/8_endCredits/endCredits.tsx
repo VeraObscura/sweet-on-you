@@ -8,7 +8,7 @@ import AnimatedVignette from "@/shared/animatedVignette";
 
 import routes from "@/routes";
 
-import { InterTitle, ArrowLink } from "@/components/interTitle";
+import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
 
 const EndCredits = ({ slideIdx = null }: SceneType) => {
@@ -41,11 +41,7 @@ const EndCredits = ({ slideIdx = null }: SceneType) => {
 
   const renderSlide = () => {
     return (
-      <InterTitle
-        hasAnimatedVignette={
-          slides[slideIndex].meta?.hasVignette ? true : false
-        }
-      >
+      <InterTitle>
         {isClosed && <AnimatedVignette isClosed={true} />}
         {slideContent[slideIndex]}
         {!slides[slideIndex].choices && !isClosed && (
@@ -55,7 +51,13 @@ const EndCredits = ({ slideIdx = null }: SceneType) => {
     );
   };
 
-  return <Fragment>{renderSlide()}</Fragment>;
+  return (
+    <ClipMask
+      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
+    >
+      {renderSlide()}
+    </ClipMask>
+  );
 };
 
 export default EndCredits;

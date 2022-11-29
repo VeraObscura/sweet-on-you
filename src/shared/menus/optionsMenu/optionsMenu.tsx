@@ -3,7 +3,12 @@ import { useAppSelector } from "@/redux/hooks";
 import Dropdown from "react-dropdown";
 
 // Components
-import { InterTitle, ArrowLink, TitleText } from "@/components/interTitle";
+import {
+  ClipMask,
+  InterTitle,
+  ArrowLink,
+  TitleText,
+} from "@/components/interTitle";
 import Slider from "@/components/slider";
 
 // Components
@@ -42,38 +47,40 @@ const OptionsMenu = ({ onReturn }: OptionsMenuProps) => {
 
   return (
     <div className={styles.optionsMenu}>
-      <InterTitle>
-        <TitleText text="Options" />
-        <div className={styles.options}>
-          <div className={styles.options__item}>
-            <p className={styles.options__item__text}>{`Volume (${
-              volume * 10
-            })`}</p>
-            <div className={styles.options__item__input}>
-              <Slider
-                text={"Volume"}
-                value={volume * 10}
-                onChange={handleVolumeChange}
-              />
+      <ClipMask>
+        <InterTitle>
+          <TitleText text="Options" />
+          <div className={styles.options}>
+            <div className={styles.options__item}>
+              <p className={styles.options__item__text}>{`Volume (${
+                volume * 10
+              })`}</p>
+              <div className={styles.options__item__input}>
+                <Slider
+                  text={"Volume"}
+                  value={volume * 10}
+                  onChange={handleVolumeChange}
+                />
+              </div>
+            </div>
+            <div className={styles.options__item}>
+              <p className={styles.options__item__text}>{`Language`}</p>
+              <div className={styles.options__item__input}>
+                <Dropdown
+                  options={options}
+                  onChange={(e) => handleLanguageChange(e.value)}
+                  value={defaultOption}
+                  placeholder="Select a language"
+                  controlClassName="languageDropdown__control"
+                  menuClassName="languageDropdown__menu"
+                  arrowClassName="languageDropdown__arrow"
+                />
+              </div>
             </div>
           </div>
-          <div className={styles.options__item}>
-            <p className={styles.options__item__text}>{`Language`}</p>
-            <div className={styles.options__item__input}>
-              <Dropdown
-                options={options}
-                onChange={(e) => handleLanguageChange(e.value)}
-                value={defaultOption}
-                placeholder="Select a language"
-                controlClassName="languageDropdown__control"
-                menuClassName="languageDropdown__menu"
-                arrowClassName="languageDropdown__arrow"
-              />
-            </div>
-          </div>
-        </div>
-        <ArrowLink link={null} onClick={onReturn} backButton />
-      </InterTitle>
+          <ArrowLink onClick={onReturn} backButton />
+        </InterTitle>
+      </ClipMask>
     </div>
   );
 };

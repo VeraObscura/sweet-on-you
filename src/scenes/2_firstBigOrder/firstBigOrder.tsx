@@ -9,7 +9,7 @@ import AnimatedVignette from "@/shared/animatedVignette";
 
 import routes from "@/routes";
 
-import { InterTitle, ArrowLink } from "@/components/interTitle";
+import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
 
 import bakeryInterior from "@/assets/images/bakeryInterior.jpg";
@@ -108,11 +108,7 @@ const FirstBigOrder = ({ slideIdx = null }: SceneType) => {
         );
       default:
         return (
-          <InterTitle
-            hasAnimatedVignette={
-              slides[slideIndex].meta?.hasVignette ? true : false
-            }
-          >
+          <InterTitle>
             {isClosed && <AnimatedVignette isClosed={true} />}
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && !isClosed && (
@@ -123,7 +119,13 @@ const FirstBigOrder = ({ slideIdx = null }: SceneType) => {
     }
   };
 
-  return <Fragment>{renderSlide(slides[slideIndex].stepName)}</Fragment>;
+  return (
+    <ClipMask
+      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
+    >
+      {renderSlide(slides[slideIndex].stepName)}
+    </ClipMask>
+  );
 };
 
 export default FirstBigOrder;

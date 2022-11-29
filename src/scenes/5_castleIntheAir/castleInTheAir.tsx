@@ -9,7 +9,7 @@ import AnimatedVignette from "@/shared/animatedVignette";
 
 import routes from "@/routes";
 
-import { InterTitle, ArrowLink } from "@/components/interTitle";
+import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
 
 import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
@@ -56,11 +56,7 @@ const CastleInTheAir = ({ slideIdx = null }: SceneType) => {
         );
       default:
         return (
-          <InterTitle
-            hasAnimatedVignette={
-              slides[slideIndex].meta?.hasVignette ? true : false
-            }
-          >
+          <InterTitle>
             {isClosed && <AnimatedVignette isClosed={true} />}
             {slideContent[slideIndex]}
             {!slides[slideIndex].choices && !isClosed && (
@@ -71,7 +67,13 @@ const CastleInTheAir = ({ slideIdx = null }: SceneType) => {
     }
   };
 
-  return <Fragment>{renderSlide(slides[slideIndex].stepName)}</Fragment>;
+  return (
+    <ClipMask
+      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
+    >
+      {renderSlide(slides[slideIndex].stepName)}
+    </ClipMask>
+  );
 };
 
 export default CastleInTheAir;

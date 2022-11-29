@@ -1,22 +1,19 @@
+.clipMask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: inset(3% 13% 3% 13% round 10%);
+}
+
 .container {
   top: 0;
   position: absolute;
-
-  &__derailed {
-    width: 200vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    left: -00px;
-    animation: derail-element 2s steps(4, end);
-  }
 
   &__standard {
     left: 0;
     width: 100vw;
     height: 100vh;
     animation: move-element 0.5s steps(2, end) infinite;
-    clip-path: inset(3% 13% 3% 13% round 10%);
   }
 
   .interTitleContainer {
@@ -28,7 +25,7 @@
     justify-content: center;
     overflow: hidden;
     filter: blur(1px);
-    background-color: $color-grey-200;
+    background-color: $color-grey-500;
     position: absolute;
     top: 0;
     left: 10%;
@@ -52,6 +49,10 @@
       height: 75%;
       z-index: 10001;
 
+      &__animatedFadeIn {
+        animation: fade-in-text 0.5s ease-in-out forwards;
+      }
+
       &__titleText,
       &__bodyText {
         color: $color-grey-100;
@@ -61,12 +62,18 @@
         cursor: none;
       }
 
+      &__bodyText {
+        opacity: 1;
+      }
+
       &__italicizedText {
         font-style: italic;
+        opacity: 1;
       }
 
       &__capitalizedText {
         text-transform: uppercase;
+        opacity: 1;
       }
 
       &__titleText {
@@ -74,6 +81,7 @@
         width: 60%;
         display: flex;
         justify-content: center;
+        opacity: 1;
 
         h1 {
           position: relative;
@@ -93,7 +101,8 @@
       &__choiceTextContainer {
         display: flex;
         flex-direction: column;
-        width: 40%;
+        min-width: 40%;
+        max-width: 60%;
         height: auto;
       }
 
@@ -102,9 +111,11 @@
         font-family: $main-font;
         text-decoration: none;
         border: 1px solid $color-grey-100;
-        white-space: nowrap;
+        line-height: 1em;
+        padding: 10px;
         margin: 0.25em 0;
         cursor: pointer;
+        opacity: 1;
 
         h2 {
           margin: 0;
@@ -153,17 +164,28 @@
 }
 
 @keyframes derail-element {
-  0%,
-  100% {
-    left: -200px;
+  0% {
+    left: -20%;
   }
   25% {
-    left: 300px;
+    left: -50%;
   }
   50% {
-    left: -300px;
+    left: -30%;
   }
   75% {
-    left: -200px;
+    left: -20%;
+  }
+  75% {
+    left: -50%;
+  }
+}
+
+@keyframes fade-in-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

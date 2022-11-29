@@ -1,15 +1,15 @@
-import { Fragment, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slidesA } from "./text";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
-import AnimatedVignette from "@/shared/animatedVignette";
+import CelluloidFire from "@/components/celluloidFire/celluloidFire";
 
 import routes from "@/routes";
 
-import { InterTitle, ArrowLink } from "@/components/interTitle";
+import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
 
 import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
@@ -18,6 +18,7 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
   const navigate = useNavigate();
 
   const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
+  const [isBurning, setIsBurning] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
   const language = useAppSelector((state: any) => state.options.language);
   const slides = slidesA;
@@ -33,10 +34,16 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
     if (!checkSlidesOver()) {
       setSlideIndex(slideIndex + 1);
     } else {
-      setIsClosed(true);
+      setIsBurning(true);
+
+      setTimeout(() => {
+        setIsBurning(false);
+        setIsClosed(true);
+      }, 16000);
+
       setTimeout(() => {
         navigate(routes.DEVIL_IN_THE_DETAILS);
-      }, 2000);
+      }, 20000);
     }
   }, [checkSlidesOver, slideIndex]);
 
@@ -56,14 +63,9 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
         );
       default:
         return (
-          <InterTitle
-            hasAnimatedVignette={
-              slides[slideIndex].meta?.hasVignette ? true : false
-            }
-          >
-            {isClosed && <AnimatedVignette isClosed={true} />}
+          <InterTitle>
             {slideContent[slideIndex]}
-            {!slides[slideIndex].choices && !isClosed && (
+            {!slides[slideIndex].choices && !isBurning && (
               <ArrowLink onClick={handleNextSlide} />
             )}
           </InterTitle>
@@ -71,7 +73,14 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
     }
   };
 
-  return <Fragment>{renderSlide(slides[slideIndex].stepName)}</Fragment>;
+  return (
+    <ClipMask
+      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
+    >
+      {isBurning && <CelluloidFire />}
+      {!isClosed && renderSlide(slides[slideIndex].stepName)}
+    </ClipMask>
+  );
 };
 
 export default ShowMustGoOn;

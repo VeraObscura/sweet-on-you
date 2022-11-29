@@ -6,4 +6,5 @@ export {
   NarrationText,
   ArrowLink,
   InterTitle,
+  ClipMask,
 } from "./interTitle";

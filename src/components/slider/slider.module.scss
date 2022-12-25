@@ -27,7 +27,6 @@
     }
 
     .customSlider__thumb {
-      cursor: pointer;
       /*color for the thumb */
       background: $color-red-600;
       width: 50px;
@@ -35,8 +34,14 @@
       border-radius: 100%;
       outline: none;
 
+      // custom cursor
+      cursor: url(../src/assets/images/cursor.png), pointer;
+
       &:hover {
         box-shadow: 0 0 0 8px $color-red-500;
+
+        // custom cursor
+        cursor: url(../src/assets/images/cursor.png), default;
       }
     }
   }

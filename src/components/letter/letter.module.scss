@@ -1,0 +1,48 @@
+.letterContainer {
+  width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  filter: blur(1px);
+  background: url("../../assets/images/letter.jpg") no-repeat left top;
+  background: center / contain no-repeat url("../../assets/images/letter.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 10%;
+
+  &__letter {
+    width: 70%;
+    height: 55%;
+    padding: 0 10%;
+    text-align: left;
+    overflow-y: auto;
+    font-family: $letter-font;
+    font-weight: 700;
+    color: $color-grey-800;
+    animation: fade-in-text 0.75s ease-in-out forwards;
+
+    font: p {
+      overflow: hidden;
+    }
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@keyframes fade-in-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

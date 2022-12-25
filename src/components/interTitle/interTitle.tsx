@@ -15,6 +15,7 @@ interface ChoiceTextProps {
 
 interface ArrowLinkProps {
   backButton?: boolean;
+  lightVariant?: boolean;
   onClick: () => void;
 }
 
@@ -95,13 +96,19 @@ export const NarrationText = ({
   );
 };
 
-export const ArrowLink = ({ backButton = false, onClick }: ArrowLinkProps) => {
+export const ArrowLink = ({
+  backButton = false,
+  lightVariant = false,
+  onClick,
+}: ArrowLinkProps) => {
   return (
     <div
       className={
         backButton
-          ? `${styles.interTitle__arrowLink} ${styles.interTitle__arrowLinkBack}`
-          : `${styles.interTitle__arrowLink}`
+          ? `${styles.arrowLink} ${styles.arrowLinkBack} ${
+              lightVariant && styles.arrowLink__light
+            }`
+          : `${styles.arrowLink} ${lightVariant && styles.arrowLink__light}`
       }
       onClick={onClick}
     >

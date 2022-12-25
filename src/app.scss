@@ -23,11 +23,17 @@
     h1 {
       @include fluid-type($min_width, $max_width, 30px, 44px);
     }
+
     h2 {
       @include fluid-type($min_width, $max_width, 24px, 36px);
     }
+
     h3 {
       @include fluid-type($min_width, $max_width, 20px, 32px);
+    }
+
+    p {
+      @include fluid-type($min_width, $max_width, 25px, 40px);
     }
   }
 }

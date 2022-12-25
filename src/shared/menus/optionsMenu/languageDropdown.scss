@@ -17,6 +17,9 @@
       background-color: $color-grey-700 !important;
       color: $color-white !important;
 
+      // custom cursor
+      cursor: url(../src/assets/images/cursor.png), default;
+
       &:hover {
         background-color: $color-grey-600 !important;
       }

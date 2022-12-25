@@ -20,9 +20,16 @@
     pointer-events: all;
     position: absolute;
     z-index: 1;
-    font-size: 1em;
-    bottom: 5vh;
+    font-size: 2em;
+    bottom: 10vh;
     right: 20vw;
-    cursor: pointer;
+    opacity: 0.5;
+
+    // custom cursor
+    cursor: url(../src/assets/images/cursor.png), default;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

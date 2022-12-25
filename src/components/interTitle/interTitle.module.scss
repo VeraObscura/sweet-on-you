@@ -36,7 +36,6 @@
       position: absolute;
       z-index: -1;
       opacity: 0.8;
-      background-image: url(../images/interTitle/interTitleBackground.jpg);
       animation: move-element 0.5s steps(2, end) infinite;
     }
 
@@ -114,8 +113,10 @@
         line-height: 1em;
         padding: 10px;
         margin: 0.25em 0;
-        cursor: pointer;
         opacity: 1;
+
+        // custom cursor
+        cursor: url(../src/assets/images/cursor.png), pointer;
 
         h2 {
           margin: 0;
@@ -127,28 +128,39 @@
           color: black;
         }
       }
-
-      &__arrowLink {
-        background-color: transparent;
-        font-size: 2em;
-        border: none;
-        color: gray;
-        text-decoration: none;
-        pointer-events: all;
-        vertical-align: bottom;
-        cursor: pointer;
-        transition: 0.3s;
-
-        &:hover {
-          color: white;
-        }
-      }
-
-      &__arrowLinkBack {
-        transform: rotate(180deg);
-      }
     }
   }
+}
+
+.arrowLink {
+  background-color: transparent;
+  font-size: 2em;
+  border: none;
+  color: $color-grey-600;
+  text-decoration: none;
+  pointer-events: all;
+  vertical-align: bottom;
+  cursor: pointer;
+  transition: 0.3s;
+
+  //custom cursor
+  cursor: url(../src/assets/images/cursor.png), default;
+
+  &:hover {
+    color: $color-white;
+  }
+
+  &__light {
+    color: $color-grey-700;
+
+    &:hover {
+      color: $color-black;
+    }
+  }
+}
+
+.arrowLinkBack {
+  transform: rotate(180deg);
 }
 
 @keyframes move-element {

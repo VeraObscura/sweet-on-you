@@ -11,13 +11,31 @@ export const slideText: SlideType[] = [
   },
   {
     narration: {
-      en: "Mariela gently places her creation in a cakebox, ties it with coloured ribbon...",
+      en: "Mariela gingerly rest her creation in a cardboard cakebox, ties it with pink ribbon...",
     },
   },
   {
     narration: {
-      en: "...and makes her way to the bakery.",
+      en: "...and makes her way down the street to Heavenly Delights.",
     },
+  },
+  {
+    title: {
+      en: "Mariela",
+    },
+    dialogue: {
+      en: "I'm so nervous...",
+    },
+    choices: [{ en: "But I can do this." }],
+  },
+  {
+    title: {
+      en: "Mariela",
+    },
+    dialogue: {
+      en: "I'm going to make a fool of myself...",
+    },
+    choices: [{ en: "Just one foot in front of the other." }],
   },
   {
     stepName: "bakeryStoreFront",
@@ -35,7 +53,23 @@ export const slideText: SlideType[] = [
       en: "Bakery Owner",
     },
     dialogue: {
-      en: "Ah, we spoke on the phone. I'm glad you could make it.",
+      en: "Hi, Mariela is it? Ah, yes we spoke on the phone last week, about the opening for a new supplier.",
+    },
+  },
+  {
+    title: {
+      en: "Bakery Owner",
+    },
+    dialogue: {
+      en: "Ah, yes we spoke on the phone last week, about the opening for a new supplier.",
+    },
+  },
+  {
+    title: {
+      en: "Bakery Owner",
+    },
+    dialogue: {
+      en: "Hi, I'm Victor, glad you could make it.",
     },
   },
   {
@@ -54,7 +88,7 @@ export const slideText: SlideType[] = [
       en: "Bakery Owner",
     },
     dialogue: {
-      en: "Oh my, how scrumptious!",
+      en: "Hmm...",
     },
   },
   {
@@ -62,18 +96,57 @@ export const slideText: SlideType[] = [
       en: "Bakery Owner",
     },
     dialogue: {
-      en: "These will be a hit with customers for sure!",
+      en: "Good God,that's delicious!",
+    },
+  },
+  {
+    title: {
+      en: "Bakery Owner",
+    },
+    dialogue: {
+      en: "If you can make something like this, I'm sure you can make anything.",
+    },
+  },
+  {
+    title: {
+      en: "Bakery Owner",
+    },
+    dialogue: {
+      en: "You know, I don't often do this...",
     },
   },
   {
     dialogue: {
-      en: "I'd like to order five more for next week. How does that sound?",
+      en: "...but, I'd like to order three more for next week.",
+    },
+  },
+  {
+    dialogue: {
+      en: "A Lamington Sponge, a Lemon Chiffon, A Hazelnut Genoise, and a Chocolate Icebox Cake.",
+    },
+  },
+  {
+    dialogue: {
+      en: "Have them delivered here this next week, and you've got yourself a job.",
+    },
+  },
+  {
+    dialogue: {
+      en: "How does that sound?",
     },
     choices: [{ en: "Yes!" }],
   },
 ];
 
 export const pathA: SlideType[] = [
+  {
+    title: {
+      en: "Bakery Owner",
+    },
+    dialogue: {
+      en: "Fantastic!",
+    },
+  },
   {
     title: {
       en: "Bakery Owner",

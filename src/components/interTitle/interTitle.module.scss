@@ -132,11 +132,16 @@
         background-color: transparent;
         font-size: 2em;
         border: none;
-        color: white;
+        color: gray;
         text-decoration: none;
         pointer-events: all;
         vertical-align: bottom;
         cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          color: white;
+        }
       }
 
       &__arrowLinkBack {

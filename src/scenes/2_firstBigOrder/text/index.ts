@@ -104,16 +104,40 @@ export const slidesB: SlideType[] = [
       en: "Bakery Owner",
     },
     dialogue: {
-      en: "One particular gentleman, a handsome one I might add, was so moved they wanted to pass on this to you.",
+      en: "One particular gentleman, a handsome one I might add...",
+    },
+  },
+  {
+    title: {
+      en: "Bakery Owner",
+    },
+    dialogue: {
+      en: "...was so moved they came back the next day, and told me they wanted you to have this...",
     },
   },
   {
     narration: {
-      en: "With a wink, the bakery owner passes Mariela a sealed envelope.",
+      en: "With a wink, the bakery owner hands Mariela a sealed envelope.",
     },
   },
   {
-    stepName: "sealedEnvelope",
+    narration: {
+      en: "Inside, Mariela finds a single, typewritten letter...",
+    },
+  },
+  {
+    dialogue: {
+      en: "Dear Baker of Heavenly Delights…",
+    },
+  },
+  {
+    meta: {
+      hasVignette: false,
+      isLightVariant: true,
+    },
+    dialogue: {
+      en: "Hello! We haven't met, but I just wanted to tell you how much I loved your cake. I stopped by for a coffee last week, but couldn't help but be tempted by your confection in the display. I must say, you're very talented! I don't know how but I was reminded of a cake my mother used to make me when I was young, a chocolate cherry cake with almond buttercream frosting. Anyway, I thought I'd let you know, I liked it so much, I had to have the whole cake! All the best - J.W.",
+    },
   },
   {
     narration: {
@@ -125,9 +149,9 @@ export const slidesB: SlideType[] = [
       en: "She thinks to herself, a smile playing on her lips...",
     },
   },
-  // {
-  //   narration: {
-  //     en: "..'Well, isn't the customer always right?'",
-  //   },
-  // },
+  {
+    narration: {
+      en: "..'Well, isn't the customer always right?'",
+    },
+  },
 ];

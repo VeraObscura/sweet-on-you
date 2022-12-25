@@ -5,6 +5,7 @@ export interface TextType {
 
 export interface MetaType {
   hasVignette: boolean;
+  isLightVariant?: boolean;
 }
 
 export interface SlideType {

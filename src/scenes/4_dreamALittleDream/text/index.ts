@@ -29,8 +29,18 @@ export const slidesA: SlideType[] = [
       en: "…and the mysterious J.W. would always leave her a letter, sealed in an ivory envelope.",
     },
   },
+  // {
+  //   stepName: "bakeryStoreFront",
+  // },
   {
-    stepName: "bakeryStoreFront",
+    dialogue: {
+      en: "Dear Baker of Heavenly Delights…",
+    },
+  },
+  {
+    dialogue: {
+      en: "“I have to ask, where did you learn to do what you do? You're more than just a baker, you're an artist. Everything you create is just exquisite! I hear you're the baker's new supplier - better late than never, in my opinion! Looking forward to dropping by to sample your next creation - J.W.”",
+    },
   },
   {
     narration: {
@@ -69,16 +79,23 @@ export const slidesA: SlideType[] = [
   },
   {
     narration: {
-      en: "How he might look stretched out in his armchair with the Sunday paper...",
+      en: "How he might look stretched out in his favourite armchair with the Sunday paper...",
     },
   },
   {
     narration: {
-      en: "...as she, Mariela, made his breakfast.",
+      en: "...as she made his breakfast.",
     },
   },
   {
-    stepName: "bakeryStoreFront",
+    dialogue: {
+      en: "Dear Baker of Heavenly Delights…",
+    },
+  },
+  {
+    dialogue: {
+      en: "I don't know how you do it, I've never heard your voice. But something about what you do just...speaks to me. I feel as though I know you. - J.W",
+    },
   },
   {
     narration: {
@@ -111,7 +128,14 @@ export const slidesA: SlideType[] = [
     },
   },
   {
-    stepName: "bakeryStoreFront",
+    dialogue: {
+      en: "Dear Baker of Heavenly Delights…",
+    },
+  },
+  {
+    dialogue: {
+      en: "I hope your husband knows how lucky he is. But perhaps that is presumptuous of me? I mean to say, you're a talented baker. If your baking is any indication, I imagine that you're a kind, diligent sort of a person. I can only imagine some fine gentleman has captured your heart already. The married life is not yet in the card for me, but perhaps one day. But enough of my yammering. A big fan - J.W",
+    },
   },
   {
     narration: {
@@ -130,12 +154,12 @@ export const slidesA: SlideType[] = [
   },
   {
     narration: {
-      en: "- wrought in sterling silver and tied with coloured ribbon -",
+      en: "- little trinkets wrought in sterling silver and tied with coloured ribbon -",
     },
   },
   {
     narration: {
-      en: "...symbols of every good thing she wished for her J.W.",
+      en: "...symbols of every good thing she wished for her J.W., baked right into the cake",
     },
   },
   {
@@ -147,9 +171,6 @@ export const slidesA: SlideType[] = [
       { en: "A fleur de lis, for new beginnings" },
       { en: "A bell, for betrothal" },
     ],
-  },
-  {
-    stepName: "bakeryStoreFront",
   },
 ];
 
@@ -173,6 +194,16 @@ export const pathC: SlideType[] = [
 
 export const slidesB: SlideType[] = [
   {
+    dialogue: {
+      en: "Dear Baker of Heavenly Delights…",
+    },
+  },
+  {
+    dialogue: {
+      en: "You devil, you! I discovered your charms in the cake last week. I admit, I had to do a little digging to find out what they all meant. How sweet of you…and how very mysterious! Last week, as I dropped this envelope off, I asked the baker how I could contact you. I was told you were reluctant to make that information known to publically. I understand, I too enjoy my privacy. But by now, I am sure you are tired of my anonymity, as I am weary of not having the pleasure to really get to know you. I have something to ask of you, would you be able to meet me in person? -J.W.",
+    },
+  },
+  {
     narration: {
       en: "Mariela's heart soared. She could see it so clearly now...",
     },
@@ -189,7 +220,7 @@ export const slidesB: SlideType[] = [
   },
   {
     narration: {
-      en: "...as she sets before the child, a white chocolate cherry cake with almond frosting.",
+      en: "...as she sets before their son, a white chocolate cherry cake with almond frosting.",
     },
   },
 ];

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import FilmGrain from "@/shared/filmGrain";
 
 import interTitleBackground from "@/assets/images/interTitle.jpg";
@@ -35,6 +35,7 @@ interface InterTitleProps {
   customVignette?: React.ReactNode;
   hasBackground?: boolean;
   isClosed?: boolean;
+  isLightVariant?: boolean;
 }
 
 export const ChoiceTextContainer = ({ children }: ChoiceTextConatinerProps) => {
@@ -112,11 +113,8 @@ export const ArrowLink = ({ backButton = false, onClick }: ArrowLinkProps) => {
 export const InterTitle = ({
   children,
   hasBackground = true,
+  isLightVariant = false,
 }: InterTitleProps) => {
-  useEffect(() => {
-    console.log("intertitle is mounted");
-  }, []);
-
   return (
     <div className={`${styles.container} ${styles.container__standard}`}>
       <div>

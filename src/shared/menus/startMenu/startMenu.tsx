@@ -31,10 +31,7 @@ const StartMenu = ({ onSelectOptions }: StartMenuProps) => {
   };
 
   const handleClickAbout = () => {
-    setIsClosed(true);
-    setTimeout(() => {
-      navigate(routes.ABOUT);
-    }, 2000);
+    navigate(routes.ABOUT);
   };
 
   return (

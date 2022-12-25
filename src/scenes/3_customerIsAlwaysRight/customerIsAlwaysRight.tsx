@@ -1,9 +1,10 @@
-import { Fragment, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slidesA } from "./text";
+import Letter from "@/components/letter/letter";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
 import AnimatedVignette from "@/shared/animatedVignette";
 
@@ -13,6 +14,7 @@ import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
 
 import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
+import bakeryInterior from "@/assets/images/bakeryInterior.jpg";
 
 const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
   const navigate = useNavigate();
@@ -54,6 +56,23 @@ const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
               imageSrc={bakeryStoreFront}
             />
           </InterTitle>
+        );
+      case "bakeryInterior":
+        return (
+          <InterTitle hasBackground={false}>
+            <SceneBackground
+              link={null}
+              onClick={handleNextSlide}
+              imageSrc={bakeryInterior}
+            />
+          </InterTitle>
+        );
+      case "letter":
+        return (
+          <Letter
+            onClick={handleNextSlide}
+            paragraphs={slides[slideIndex].paragraphs}
+          />
         );
       default:
         return (

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slidesA, slidesB, pathA, pathB, pathC } from "./text";
+import Letter from "@/components/letter/letter";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
 import AnimatedVignette from "@/shared/animatedVignette";
 
@@ -84,6 +85,13 @@ const DreamALittleDream = ({ slideIdx = null }: SceneType) => {
               imageSrc={bakeryStoreFront}
             />
           </InterTitle>
+        );
+      case "letter":
+        return (
+          <Letter
+            onClick={handleNextSlide}
+            paragraphs={slides[slideIndex].paragraphs}
+          />
         );
       default:
         return (

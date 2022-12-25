@@ -15,7 +15,7 @@ export const SceneBackground = ({
 }: SceneBackgroundProps) => {
   return (
     <div className={styles.sceneBackground}>
-      <UIContainer link={link} onClick={onClick} />
+      <UIContainer onClick={onClick} />
       <img className={styles.sceneBackground__image} src={imageSrc} />
     </div>
   );

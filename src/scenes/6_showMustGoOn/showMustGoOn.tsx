@@ -42,7 +42,7 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
       }, 16000);
 
       setTimeout(() => {
-        navigate(routes.DEVIL_IN_THE_DETAILS);
+        navigate(routes.TO_BE_CONTINUED);
       }, 20000);
     }
   }, [checkSlidesOver, slideIndex]);

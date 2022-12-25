@@ -12,9 +12,9 @@ export const UIContainer = ({
   return (
     <div className={styles.uiContainer}>
       {!isClosed && (
-        <h1 className={styles.uiContainer__button} onClick={onClick}>
+        <button className={styles.uiContainer__button} onClick={onClick}>
           ➜
-        </h1>
+        </button>
       )}
     </div>
   );

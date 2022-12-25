@@ -126,18 +126,27 @@ export const slidesB: SlideType[] = [
     },
   },
   {
-    dialogue: {
-      en: "Dear Baker of Heavenly Delights…",
-    },
-  },
-  {
-    meta: {
-      hasVignette: false,
-      isLightVariant: true,
-    },
-    dialogue: {
-      en: "Hello! We haven't met, but I just wanted to tell you how much I loved your cake. I stopped by for a coffee last week, but couldn't help but be tempted by your confection in the display. I must say, you're very talented! I don't know how but I was reminded of a cake my mother used to make me when I was young, a chocolate cherry cake with almond buttercream frosting. Anyway, I thought I'd let you know, I liked it so much, I had to have the whole cake! All the best - J.W.",
-    },
+    stepName: "letter",
+    paragraphs: [
+      {
+        en: "Dear Baker of Heavenly Delights,",
+      },
+      {
+        en: "Hello! We haven't met, but I just wanted to tell you how much I loved your cake.",
+      },
+      {
+        en: "I stopped by for a coffee last week, but couldn't help but be tempted by your confection in the display.",
+      },
+      {
+        en: "I must say, you're very talented! I don't know how but I was reminded of a cake my mother used to make me when I was young, a chocolate cherry cake with almond buttercream frosting.",
+      },
+      {
+        en: "Wonderful work!",
+      },
+      {
+        en: "J.W.",
+      },
+    ],
   },
   {
     narration: {
@@ -151,7 +160,7 @@ export const slidesB: SlideType[] = [
   },
   {
     narration: {
-      en: "..'Well, isn't the customer always right?'",
+      en: "...'Well, isn't the customer always right?'",
     },
   },
 ];

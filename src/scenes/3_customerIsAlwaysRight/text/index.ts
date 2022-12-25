@@ -10,7 +10,14 @@ export const slidesA: SlideType[] = [
     },
   },
   {
-    stepName: "bakeryInterior",
+    narration: {
+      en: "Later that week, after all her orders were complete...",
+    },
+  },
+  {
+    narration: {
+      en: "...Mariela finishes one last special cake for her favourite customer.",
+    },
   },
   {
     title: {
@@ -18,6 +25,22 @@ export const slidesA: SlideType[] = [
     },
     dialogue: {
       en: "This one will be special...",
+    },
+  },
+  {
+    stepName: "bakeryStoreFront",
+  },
+  {
+    title: {
+      en: "Mariela",
+    },
+    dialogue: {
+      en: "I think they'll love it...",
+    },
+  },
+  {
+    narration: {
+      en: "Later, at the bakery...",
     },
   },
   {
@@ -33,7 +56,7 @@ export const slidesA: SlideType[] = [
   },
   {
     narration: {
-      en: "Mariela's flutters as Victor hands her another cream-coloured envelope.",
+      en: "Mariela's heart flutters as Victor hands her another cream-coloured envelope.",
     },
   },
   {
@@ -42,21 +65,32 @@ export const slidesA: SlideType[] = [
     },
   },
   {
-    dialogue: {
-      en: "Dear Baker of Heavenly Delights…",
-    },
-  },
-  {
-    dialogue: {
-      en: "I've had my share of cake in my life, but this one was, and this will sound dramatic - transcendental. The airy chocolate sponge, that homemade cherry jam, the intricacies of that divine frosting alone! Just one bite took me back to my youth, to the days when my brothers and I would fight amongst ourselves to lick the spoon, when my mother would  make this particular cake to mark the first snowfall of winter. A chocolate cherry cake with almond buttercream frosting. Anyway, I just thought I'd let you know how much I liked it, I just had to have the whole cake! Though I fear for my waistline, I hope you'd be pleased to know you've found a loyal customer in me..- J.W",
-    },
-  },
-  {
-    title: {
-      en: "Mariela",
-    },
-    dialogue: {
-      en: "I think they'll love it...",
-    },
+    stepName: "letter",
+    paragraphs: [
+      {
+        en: "Dear Baker of Heavenly Delights,",
+      },
+      {
+        en: "I've had my share of cake in my life, but this one was, and this will sound dramatic - transcendental.",
+      },
+      {
+        en: "The airy chocolate sponge, that homemade cherry jam, the intricacies of that divine frosting alone! Just one bite took me back to my youth, growing up on the family farm, and the days when my mother would make a very particular cake to mark the first snowfall of winter. A kind of celebration for the end of the hard work after the harvest for us every year.",
+      },
+      {
+        en: "I remembered feeling safe and warm inside, staring out at winter storms outside our living room window. How at night, the porch lantern was the only light in the pitch darkness. With the winds whipping the snow, it sometimes seemed like the world past our front step simply ended.",
+      },
+      {
+        en: "But the cake? It was a chocolate cherry cake with almond buttercream frosting. My brothers and I would fight amongst ourselves just to lick the spoon.",
+      },
+      {
+        en: "Anyway, I just thought I'd let you know how much I liked it, I just had to have the whole cake!",
+      },
+      {
+        en: "Though I fear for my waistline, I hope you'd be pleased to know you've found a loyal customer in me.",
+      },
+      {
+        en: "J.W.",
+      },
+    ],
   },
 ];

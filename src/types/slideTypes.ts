@@ -17,4 +17,5 @@ export interface SlideType {
   dialogue?: TextType;
   choices?: TextType[];
   stepName?: string;
+  paragraphs?: TextType[];
 }

@@ -8,7 +8,7 @@ interface OptionsState {
 
 const initialState: OptionsState = {
   language: "en",
-  volume: 0,
+  volume: 0.5,
 };
 
 export const optionsSlice = createSlice({

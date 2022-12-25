@@ -134,7 +134,7 @@ export const slideText: SlideType[] = [
     dialogue: {
       en: "How does that sound?",
     },
-    choices: [{ en: "Yes!" }],
+    choices: [{ en: "You won't be disappointed!" }],
   },
 ];
 

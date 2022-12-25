@@ -54,6 +54,7 @@ const BakeryAudition = ({ slideIdx = null }: SceneType) => {
 
   const handleSelection = (index: number) => {
     let newSlides = slides.concat(pathA);
+    console.log(newSlides);
     setSlides(newSlides);
     setChoiceIndex(index);
   };

@@ -118,7 +118,7 @@ export const slidesA: SlideType[] = [
       en: "Julia",
     },
     dialogue: {
-      en: "I heard from the bakery owner that you waited all day in the cafe for me? ",
+      en: "I heard from the bakery owner that you waited all day in the cafe for me?",
     },
   },
   {
@@ -164,7 +164,7 @@ export const slidesA: SlideType[] = [
       en: "Julia",
     },
     dialogue: {
-      en: "I own two restaurants, and am opening another next spring...",
+      en: "I'm opening a restaurant next spring...",
     },
   },
   {

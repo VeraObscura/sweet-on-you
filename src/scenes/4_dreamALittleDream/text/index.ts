@@ -29,19 +29,29 @@ export const slidesA: SlideType[] = [
       en: "…and the mysterious J.W. would always leave her a letter, sealed in an ivory envelope.",
     },
   },
+  {
+    stepName: "letter",
+    paragraphs: [
+      {
+        en: "Dear Baker of Heavenly Delights,",
+      },
+      {
+        en: "I have to ask, where did you learn to do what you do? ",
+      },
+      {
+        en: "You're more than a baker to me, you're an artist. Everything you create is just exquisite! I hear you're the bakery's new supplier - better late than never, in my opinion!",
+      },
+      {
+        en: "Looking forward to dropping by to sample your next creation.",
+      },
+      {
+        en: "J.W.",
+      },
+    ],
+  },
   // {
   //   stepName: "bakeryStoreFront",
   // },
-  {
-    dialogue: {
-      en: "Dear Baker of Heavenly Delights…",
-    },
-  },
-  {
-    dialogue: {
-      en: "“I have to ask, where did you learn to do what you do? You're more than just a baker, you're an artist. Everything you create is just exquisite! I hear you're the baker's new supplier - better late than never, in my opinion! Looking forward to dropping by to sample your next creation - J.W.”",
-    },
-  },
   {
     narration: {
       en: "Week after week, and cake after cake, Mariela's reputation grew in her little town.",
@@ -79,23 +89,22 @@ export const slidesA: SlideType[] = [
   },
   {
     narration: {
-      en: "How he might look stretched out in his favourite armchair with the Sunday paper...",
+      en: "How he might look stretched out in his favourite armchair with the Sunday paper, as she made his breakfast",
     },
   },
   {
-    narration: {
-      en: "...as she made his breakfast.",
-    },
-  },
-  {
-    dialogue: {
-      en: "Dear Baker of Heavenly Delights…",
-    },
-  },
-  {
-    dialogue: {
-      en: "I don't know how you do it, I've never heard your voice. But something about what you do just...speaks to me. I feel as though I know you. - J.W",
-    },
+    stepName: "letter",
+    paragraphs: [
+      {
+        en: "Dear Baker of Heavenly Delights,",
+      },
+      {
+        en: "I don't know how you do it, I've never heard you speak. But something about what you do speaks to me. I feel as though I know you.",
+      },
+      {
+        en: "J.W.",
+      },
+    ],
   },
   {
     narration: {
@@ -109,7 +118,7 @@ export const slidesA: SlideType[] = [
   },
   {
     narration: {
-      en: "No, she would instead use baking to express what she felt.",
+      en: "No, she would choose her confections to express what she felt.",
     },
   },
   {
@@ -128,14 +137,24 @@ export const slidesA: SlideType[] = [
     },
   },
   {
-    dialogue: {
-      en: "Dear Baker of Heavenly Delights…",
-    },
-  },
-  {
-    dialogue: {
-      en: "I hope your husband knows how lucky he is. But perhaps that is presumptuous of me? I mean to say, you're a talented baker. If your baking is any indication, I imagine that you're a kind, diligent sort of a person. I can only imagine some fine gentleman has captured your heart already. The married life is not yet in the card for me, but perhaps one day. But enough of my yammering. A big fan - J.W",
-    },
+    stepName: "letter",
+    paragraphs: [
+      {
+        en: "Dear Baker of Heavenly Delights,",
+      },
+      {
+        en: "I hope your husband knows how lucky he is.",
+      },
+      {
+        en: "But perhaps that's presumptuous of me? I mean to say, you're a talented baker. If your cakes are any indication, I imagine that you're a kind, diligent sort of a person. I can only imagine some fine gentleman has captured your heart already.",
+      },
+      {
+        en: "The married life has not yet become mine, but perhaps one day. But enough of my yammering. A big fan!",
+      },
+      {
+        en: "J.W.",
+      },
+    ],
   },
   {
     narration: {
@@ -159,7 +178,12 @@ export const slidesA: SlideType[] = [
   },
   {
     narration: {
-      en: "...symbols of every good thing she wished for her J.W., baked right into the cake",
+      en: "...symbols of every good thing she wished for her J.W., baked right into the cake...",
+    },
+  },
+  {
+    narration: {
+      en: "...just waiting to be discovered by her beloved.",
     },
   },
   {
@@ -194,14 +218,27 @@ export const pathC: SlideType[] = [
 
 export const slidesB: SlideType[] = [
   {
-    dialogue: {
-      en: "Dear Baker of Heavenly Delights…",
-    },
-  },
-  {
-    dialogue: {
-      en: "You devil, you! I discovered your charms in the cake last week. I admit, I had to do a little digging to find out what they all meant. How sweet of you…and how very mysterious! Last week, as I dropped this envelope off, I asked the baker how I could contact you. I was told you were reluctant to make that information known to publically. I understand, I too enjoy my privacy. But by now, I am sure you are tired of my anonymity, as I am weary of not having the pleasure to really get to know you. I have something to ask of you, would you be able to meet me in person? -J.W.",
-    },
+    stepName: "letter",
+    paragraphs: [
+      {
+        en: "Dear Baker of Heavenly Delights,",
+      },
+      {
+        en: "You devil, you! I discovered your charms in the cake last week.",
+      },
+      {
+        en: "I admit, I had to do a little digging to find out what they all meant. How sweet of you…and how very mysterious!",
+      },
+      {
+        en: "Last week, as I dropped this envelope off, I asked the baker how I could contact you. I was told you were reluctant to make that information known to publically. I understand, I too enjoy my privacy.",
+      },
+      {
+        en: "But by now, I am sure you are tired of my anonymity, as I am weary of not having the pleasure to really get to know you. I have something to ask of you, would you be able to meet me in person?",
+      },
+      {
+        en: "J.W.",
+      },
+    ],
   },
   {
     narration: {

@@ -47,6 +47,22 @@ export const slidesA: SlideType[] = [
   },
   {
     narration: {
+      en: "And waited...",
+    },
+  },
+  {
+    stepName: "bakeryStoreFront",
+  },
+  {
+    narration: {
+      en: "And waited...",
+    },
+  },
+  {
+    stepName: "bakeryStoreFront",
+  },
+  {
+    narration: {
       en: "J.W. never came that day.",
     },
   },

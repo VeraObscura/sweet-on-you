@@ -1,9 +1,10 @@
-import { Fragment, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
 import { slidesA, slidesB, pathA, pathB } from "./text";
+import Letter from "@/components/letter/letter";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
 import AnimatedVignette from "@/shared/animatedVignette";
 
@@ -96,15 +97,12 @@ const FirstBigOrder = ({ slideIdx = null }: SceneType) => {
             />
           </InterTitle>
         );
-      case "sealedEnvelope":
+      case "letter":
         return (
-          <InterTitle hasBackground={false}>
-            <SceneBackground
-              link={null}
-              onClick={handleNextSlide}
-              imageSrc={bakeryInterior}
-            />
-          </InterTitle>
+          <Letter
+            onClick={handleNextSlide}
+            paragraphs={slides[slideIndex].paragraphs}
+          />
         );
       default:
         return (

@@ -10,6 +10,7 @@ const routes = {
   THE_SHOW_MUST_GO_ON: "/the-show-must-go-on",
   DEVIL_IN_THE_DETAILS: "/the-final-flourish",
   END_CREDITS: "/end-credits",
+  TO_BE_CONTINUED: "/to-be-continued",
 };
 
 export default routes;

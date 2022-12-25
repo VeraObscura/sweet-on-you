@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import ActionPanel from "@/shared/actionPanel";
-// import Phonograph from "@/shared/phonograph";
+import Phonograph from "@/shared/phonograph";
 import StartMenu from "@/shared/menus/startMenu";
 import PauseMenu from "@/shared/menus/pauseMenu";
 import About from "@/shared/menus/about";
@@ -18,6 +18,7 @@ import CastleInTheAir from "@/scenes/5_castleIntheAir";
 import ShowMustGoOn from "@/scenes/6_showMustGoOn";
 import DevilInTheDetails from "@/scenes/7_devilInTheDetails";
 import EndCredits from "@/scenes/8_endCredits";
+import ToBeContinued from "@/scenes/9_toBeContinued";
 
 import "./app.scss";
 
@@ -83,6 +84,7 @@ function App() {
             path={routes.DEVIL_IN_THE_DETAILS}
             element={<DevilInTheDetails />}
           />
+          <Route path={routes.TO_BE_CONTINUED} element={<ToBeContinued />} />
           <Route path={routes.END_CREDITS} element={<EndCredits />} />
         </Routes>
       </main>

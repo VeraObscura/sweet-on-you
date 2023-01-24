@@ -89,7 +89,7 @@ export const slidesA: SlideType[] = [
   },
   {
     narration: {
-      en: "How he might look stretched out in his favourite armchair with the Sunday paper, as she made his breakfast",
+      en: "How he might look stretched out in his favourite armchair with the Sunday paper, as she made his breakfast.",
     },
   },
   {

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { TextType } from "@/types/slideTypes";
 import { useAppSelector } from "@/redux/hooks";
+import AnimatedVignette from "@/shared/animatedVignette";
 
 import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
 import getSlideContent from "@/helpers/getSlideContent";
@@ -49,10 +50,16 @@ const Chapter = ({
     <ClipMask
       hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
     >
-      {slides[slideIndex].stepName ? (
-        renderStep(handleNextSlide, slides[slideIndex].stepName, isClosed)
+      {slides[slideIndex].stepName && renderStep ? (
+        renderStep(
+          handleNextSlide,
+          slides[slideIndex].stepName,
+          isClosed,
+          checkSlidesOver
+        )
       ) : (
         <InterTitle>
+          {isClosed && <AnimatedVignette isClosed={true} />}
           {slideContent[slideIndex]}
           {!slides[slideIndex].choices && !isClosed && (
             <ArrowLink onClick={handleNextSlide} />

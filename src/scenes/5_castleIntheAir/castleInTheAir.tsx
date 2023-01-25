@@ -1,78 +1,42 @@
-import { Fragment, useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import { SceneType } from "@/types/sceneTypes";
-import { useAppSelector } from "@/redux/hooks";
-import { slidesA } from "./text";
-import SceneBackground from "@/components/sceneBackground/sceneBackground";
-import AnimatedVignette from "@/shared/animatedVignette";
-
+import { slideText } from "./text";
 import routes from "@/routes";
 
-import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
-import getSlideContent from "@/helpers/getSlideContent";
+import { InterTitle } from "@/components/interTitle";
+import Chapter from "@/shared/chapter";
+import SceneBackground from "@/components/sceneBackground/sceneBackground";
 
 import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
 
-const CastleInTheAir = ({ slideIdx = null }: SceneType) => {
-  const navigate = useNavigate();
+const CastleInTheAir = () => {
+  const slides = slideText;
 
-  const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
-  const [isClosed, setIsClosed] = useState(false);
-  const language = useAppSelector((state: any) => state.options.language);
-  const slides = slidesA;
-
-  const checkSlidesOver = useCallback(() => {
-    if (slideIndex >= slides.length - 1) {
-      return true;
-    }
-    return false;
-  }, [slides, slideIndex]);
-
-  const handleNextSlide = useCallback(() => {
-    if (!checkSlidesOver()) {
-      setSlideIndex(slideIndex + 1);
-    } else {
-      setIsClosed(true);
-      setTimeout(() => {
-        navigate(routes.THE_SHOW_MUST_GO_ON);
-      }, 2000);
-    }
-  }, [checkSlidesOver, slideIndex]);
-
-  const slideContent = getSlideContent({ slides, language });
-
-  const renderSlide = (stepName: string | undefined) => {
+  const renderStep = (
+    onComplete: any,
+    stepName: string | undefined,
+    isClosed: boolean
+  ) => {
     switch (stepName) {
       case "bakeryStoreFront":
         return (
           <InterTitle hasBackground={false}>
             <SceneBackground
               link={null}
-              onClick={handleNextSlide}
+              onClick={onComplete}
               imageSrc={bakeryStoreFront}
             />
           </InterTitle>
         );
       default:
-        return (
-          <InterTitle>
-            {isClosed && <AnimatedVignette isClosed={true} />}
-            {slideContent[slideIndex]}
-            {!slides[slideIndex].choices && !isClosed && (
-              <ArrowLink onClick={handleNextSlide} />
-            )}
-          </InterTitle>
-        );
+        return;
     }
   };
 
   return (
-    <ClipMask
-      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
-    >
-      {renderSlide(slides[slideIndex].stepName)}
-    </ClipMask>
+    <Chapter
+      slideText={slides}
+      nextRoute={routes.THE_SHOW_MUST_GO_ON}
+      renderStep={renderStep}
+    />
   );
 };
 

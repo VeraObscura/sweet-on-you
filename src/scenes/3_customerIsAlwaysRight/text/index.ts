@@ -1,6 +1,6 @@
 import { SlideType } from "@/types/slideTypes";
 
-export const slidesA: SlideType[] = [
+export const slideText: SlideType[] = [
   {
     meta: {
       hasVignette: true,
@@ -8,16 +8,19 @@ export const slidesA: SlideType[] = [
     chapter: {
       en: "The customer is always right",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "Later that week, after all her orders were complete...",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "...Mariela finishes one last special cake for her favourite customer.",
     },
+    jumps: 1,
   },
   {
     title: {
@@ -26,9 +29,11 @@ export const slidesA: SlideType[] = [
     dialogue: {
       en: "This one will be special...",
     },
+    jumps: 1,
   },
   {
     stepName: "bakeryStoreFront",
+    jumps: 1,
   },
   {
     title: {
@@ -37,14 +42,17 @@ export const slidesA: SlideType[] = [
     dialogue: {
       en: "I think they'll love it...",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "Later, at the bakery...",
     },
+    jumps: 1,
   },
   {
     stepName: "bakeryStoreFront",
+    jumps: 1,
   },
   {
     title: {
@@ -53,16 +61,19 @@ export const slidesA: SlideType[] = [
     dialogue: {
       en: "You've got another one!",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "Mariela's heart flutters as Victor hands her another cream-coloured envelope.",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "Inside, the letter reads...",
     },
+    jumps: 1,
   },
   {
     stepName: "letter",
@@ -92,5 +103,6 @@ export const slidesA: SlideType[] = [
         en: "J.W.",
       },
     ],
+    jumps: 1,
   },
 ];

@@ -1,58 +1,31 @@
-import { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import { SceneType } from "@/types/sceneTypes";
-import { useAppSelector } from "@/redux/hooks";
-import { slidesA } from "./text";
-import Letter from "@/components/letter/letter";
-import SceneBackground from "@/components/sceneBackground/sceneBackground";
-import AnimatedVignette from "@/shared/animatedVignette";
-
+import { slideText } from "./text";
 import routes from "@/routes";
 
-import { ClipMask, InterTitle, ArrowLink } from "@/components/interTitle";
-import getSlideContent from "@/helpers/getSlideContent";
+import { InterTitle } from "@/components/interTitle";
+import Chapter from "@/shared/chapter";
+import Letter from "@/components/letter/letter";
+import SceneBackground from "@/components/sceneBackground/sceneBackground";
 
 import bakeryStoreFront from "@/assets/images/bakeryExterior.jpg";
 import bakeryInterior from "@/assets/images/bakeryInterior.jpg";
 
-const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
-  const navigate = useNavigate();
+const CustomerIsAlwaysRight = () => {
+  const slides = slideText;
 
-  const [slideIndex, setSlideIndex] = useState(slideIdx ? slideIdx : 0);
-  const [isClosed, setIsClosed] = useState(false);
-  const slides = slidesA;
-  const language = useAppSelector((state: any) => state.options.language);
+  const renderStep = (
+    onComplete: any,
+    stepName: string | undefined,
+    isClosed: boolean
+  ) => {
+    const slideIndex = slides.findIndex((slide) => slide.stepName === stepName);
 
-  const checkSlidesOver = useCallback(() => {
-    if (slideIndex >= slides.length - 1) {
-      return true;
-    }
-
-    return false;
-  }, [slides, slideIndex]);
-
-  const handleNextSlide = useCallback(() => {
-    if (!checkSlidesOver()) {
-      setSlideIndex(slideIndex + 1);
-    } else {
-      setIsClosed(true);
-      setTimeout(() => {
-        navigate(routes.DREAM_A_LITTLE_DREAM);
-      }, 2000);
-    }
-  }, [checkSlidesOver, slideIndex]);
-
-  const slideContent = getSlideContent({ slides, language });
-
-  const renderSlide = (stepName: string | undefined) => {
     switch (stepName) {
       case "bakeryStoreFront":
         return (
           <InterTitle hasBackground={false}>
             <SceneBackground
               link={null}
-              onClick={handleNextSlide}
+              onClick={onComplete}
               imageSrc={bakeryStoreFront}
             />
           </InterTitle>
@@ -62,7 +35,7 @@ const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
           <InterTitle hasBackground={false}>
             <SceneBackground
               link={null}
-              onClick={handleNextSlide}
+              onClick={onComplete}
               imageSrc={bakeryInterior}
             />
           </InterTitle>
@@ -70,33 +43,21 @@ const CustomerIsAlwaysRight = ({ slideIdx = null }: SceneType) => {
       case "letter":
         return (
           <Letter
-            onClick={handleNextSlide}
+            onClick={onComplete}
             paragraphs={slides[slideIndex].paragraphs}
           />
         );
       default:
-        return (
-          <InterTitle
-            hasAnimatedVignette={
-              slides[slideIndex].meta?.hasVignette ? true : false
-            }
-          >
-            {isClosed && <AnimatedVignette isClosed={true} />}
-            {slideContent[slideIndex]}
-            {!slides[slideIndex].choices && !isClosed && (
-              <ArrowLink onClick={handleNextSlide} />
-            )}
-          </InterTitle>
-        );
+        return;
     }
   };
 
   return (
-    <ClipMask
-      hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
-    >
-      {renderSlide(slides[slideIndex].stepName)}
-    </ClipMask>
+    <Chapter
+      slideText={slideText}
+      nextRoute={routes.DREAM_A_LITTLE_DREAM}
+      renderStep={renderStep}
+    />
   );
 };
 

@@ -1,9 +1,10 @@
 import { SlideType } from "@/types/slideTypes";
 
-export const slidesA: SlideType[] = [
+export const slideText: SlideType[] = [
   {
     chapter: {
       en: "The end",
     },
+    jumps: 0,
   },
 ];

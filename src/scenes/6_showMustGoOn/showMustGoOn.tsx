@@ -1,9 +1,9 @@
-import { useCallback, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { SceneType } from "@/types/sceneTypes";
 import { useAppSelector } from "@/redux/hooks";
-import { slidesA } from "./text";
+import { slideText } from "./text";
 import SceneBackground from "@/components/sceneBackground/sceneBackground";
 import CelluloidFire from "@/components/celluloidFire/celluloidFire";
 
@@ -21,7 +21,7 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
   const [isBurning, setIsBurning] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
   const language = useAppSelector((state: any) => state.options.language);
-  const slides = slidesA;
+  const slides = slideText;
 
   const checkSlidesOver = useCallback(() => {
     if (slideIndex >= slides.length - 1) {
@@ -32,7 +32,7 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
 
   const handleNextSlide = useCallback(() => {
     if (!checkSlidesOver()) {
-      setSlideIndex(slideIndex + 1);
+      setSlideIndex(slideIndex + slides[slideIndex].jumps);
     } else {
       setIsBurning(true);
 
@@ -49,7 +49,7 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
 
   const slideContent = getSlideContent({ slides, language });
 
-  const renderSlide = (stepName: string | undefined) => {
+  const renderStep = (stepName: string | undefined) => {
     switch (stepName) {
       case "bakeryStoreFront":
         return (
@@ -62,14 +62,7 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
           </InterTitle>
         );
       default:
-        return (
-          <InterTitle>
-            {slideContent[slideIndex]}
-            {!slides[slideIndex].choices && !isBurning && (
-              <ArrowLink onClick={handleNextSlide} />
-            )}
-          </InterTitle>
-        );
+        return;
     }
   };
 
@@ -78,7 +71,21 @@ const ShowMustGoOn = ({ slideIdx = null }: SceneType) => {
       hasAnimatedVignette={slides[slideIndex].meta?.hasVignette ? true : false}
     >
       {isBurning && <CelluloidFire />}
-      {!isClosed && renderSlide(slides[slideIndex].stepName)}
+      {!isClosed && renderStep(slides[slideIndex].stepName)}
+      {slides[slideIndex].stepName ? (
+        renderStep(slides[slideIndex].stepName)
+      ) : (
+        <Fragment>
+          {!isClosed && (
+            <InterTitle>
+              {slideContent[slideIndex]}
+              {!slides[slideIndex].choices && !isBurning && (
+                <ArrowLink onClick={handleNextSlide} />
+              )}
+            </InterTitle>
+          )}
+        </Fragment>
+      )}
     </ClipMask>
   );
 };

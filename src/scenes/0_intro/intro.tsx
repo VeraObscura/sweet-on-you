@@ -1,8 +1,8 @@
 import { slideText } from "./text";
 import routes from "@/routes";
 
-import Chapter from "@/shared/chapter";
 import { InterTitle } from "@/components/interTitle";
+import Chapter from "@/shared/chapter";
 import CrumbCoatScene from "./components/crumbCoatScene";
 import CakeScene from "./components/cakeScene";
 import AnimatedVignette from "@/shared/animatedVignette";

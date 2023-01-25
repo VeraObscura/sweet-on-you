@@ -1,6 +1,7 @@
 export interface TextType {
   en: string;
   es?: string | undefined;
+  jumps?: number;
 }
 
 export interface MetaType {
@@ -18,4 +19,5 @@ export interface SlideType {
   choices?: TextType[];
   stepName?: string;
   paragraphs?: TextType[];
+  jumps: number;
 }

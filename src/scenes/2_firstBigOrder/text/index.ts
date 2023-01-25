@@ -1,6 +1,6 @@
 import { SlideType } from "@/types/slideTypes";
 
-export const slidesA: SlideType[] = [
+export const slideText: SlideType[] = [
   {
     meta: {
       hasVignette: true,
@@ -8,11 +8,13 @@ export const slidesA: SlideType[] = [
     chapter: {
       en: "The first big order",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "Mariela just about floats home. She returns home and begins to prepare her first big order.",
     },
+    jumps: 1,
   },
   {
     title: {
@@ -21,6 +23,7 @@ export const slidesA: SlideType[] = [
     dialogue: {
       en: "This is a big order. Five whole cakes!",
     },
+    jumps: 1,
   },
   {
     title: {
@@ -29,6 +32,7 @@ export const slidesA: SlideType[] = [
     dialogue: {
       en: "But I can do it. I can do it.",
     },
+    jumps: 1,
   },
   {
     title: {
@@ -37,11 +41,12 @@ export const slidesA: SlideType[] = [
     dialogue: {
       en: "Which one should I start first?",
     },
-    choices: [{ en: "A doozy of a cake..." }, { en: "A simple one..." }],
+    choices: [
+      { en: "A doozy of a cake...", jumps: 1 },
+      { en: "A simple one...", jumps: 2 },
+    ],
+    jumps: 0,
   },
-];
-
-export const pathA: SlideType[] = [
   {
     title: {
       en: "Mariela",
@@ -49,13 +54,8 @@ export const pathA: SlideType[] = [
     dialogue: {
       en: "Let's go for the hard one, the lemon chiffon cake with ginger icing, I feel up to the challenge!",
     },
+    jumps: 2,
   },
-  {
-    stepName: "bakeryStoreFront",
-  },
-];
-
-export const pathB: SlideType[] = [
   {
     title: {
       en: "Mariela",
@@ -63,13 +63,12 @@ export const pathB: SlideType[] = [
     dialogue: {
       en: "Let's start with an easy one, the blackberry and ginger cake, should be fun.",
     },
+    jumps: 1,
   },
   {
     stepName: "bakeryStoreFront",
+    jumps: 1,
   },
-];
-
-export const slidesB: SlideType[] = [
   {
     title: {
       en: "Mariela",
@@ -77,19 +76,23 @@ export const slidesB: SlideType[] = [
     dialogue: {
       en: "Phew! One down, four more to go.",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "One week later…",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "Mariela wakes up early and heads to the bakery with her first delivery.",
     },
+    jumps: 1,
   },
   {
     stepName: "bakeryInterior",
+    jumps: 1,
   },
   {
     title: {
@@ -98,6 +101,7 @@ export const slidesB: SlideType[] = [
     dialogue: {
       en: "Good to see you again Mariela!",
     },
+    jumps: 1,
   },
   {
     title: {
@@ -106,6 +110,7 @@ export const slidesB: SlideType[] = [
     dialogue: {
       en: "One particular gentleman, a handsome one I might add...",
     },
+    jumps: 1,
   },
   {
     title: {
@@ -114,16 +119,19 @@ export const slidesB: SlideType[] = [
     dialogue: {
       en: "...was so moved they came back the next day, and told me they wanted you to have this...",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "With a wink, the bakery owner hands Mariela a sealed envelope.",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "Inside, Mariela finds a single, typewritten letter...",
     },
+    jumps: 1,
   },
   {
     stepName: "letter",
@@ -147,20 +155,24 @@ export const slidesB: SlideType[] = [
         en: "J.W.",
       },
     ],
+    jumps: 1,
   },
   {
     narration: {
       en: "Mariela saunters home, feeling like the cat that got the cream.",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "She thinks to herself, a smile playing on her lips...",
     },
+    jumps: 1,
   },
   {
     narration: {
       en: "...'Well, isn't the customer always right?'",
     },
+    jumps: 1,
   },
 ];
